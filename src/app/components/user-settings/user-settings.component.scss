@@ -1,0 +1,48 @@
+@import "shared";
+
+.user-settings {
+
+  .user-settings-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    & .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: purple;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    & .name {
+      font-weight: bold;
+      margin-left: 15px;
+    }
+  }
+}
+
+// normalize angular material menu
+::ng-deep .user-settings-menu {
+  // todo fix box shadow with original colors
+  //box-shadow: none !important;
+  border-top: 2px solid $norder-purple-color;
+  border-radius: 2px !important;
+
+  & .mat-menu-content {
+    border-radius: 0 !important;
+
+    &:not(:empty) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+}
+
+

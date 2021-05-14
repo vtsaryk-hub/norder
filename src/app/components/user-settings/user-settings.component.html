@@ -1,0 +1,26 @@
+<ng-container *ngTemplateOutlet="userData ? userInfo : loginBtn">
+
+</ng-container>
+<ng-template #loginBtn>
+  <button class="login" (click)="login()">login</button>
+</ng-template>
+<ng-template #userInfo>
+  <div class="user-settings">
+    <div class="user-settings-header" [matMenuTriggerFor]="beforeMenu">
+      <div class="avatar">
+        <!--  todo add real data from firebase service instead of mock value-->
+        <div class="mock-avatar">JD</div>
+      </div>
+      <div class="name">
+        <!--  todo add real data from firebase service instead of mock value-->
+        John Dou
+      </div>
+    </div>
+    <mat-menu #beforeMenu="matMenu" class="user-settings-menu" xPosition="before">
+      <ul class="user-settings-list">
+        <li class="user-settings-list-item">Change password</li>
+        <li class="user-settings-list-item" (click)="logout()">Logout</li>
+      </ul>
+    </mat-menu>
+  </div>
+</ng-template>
