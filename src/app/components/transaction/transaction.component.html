@@ -1,1 +1,51 @@
-<p>transaction works!</p>
+<div class="transaction">
+  <mat-expansion-panel hideToggle="true" #panel>
+
+    <mat-expansion-panel-header #panelH (click)="panelH._toggle()">
+      <mat-panel-title (click)="$event.stopPropagation()">
+        <div class="transaction-toggle-btn" (click)="panelH._toggle()" [class.collapsed]="!panel.expanded">
+          <span class="icon-chevron"></span>
+        </div>
+        <span class="transaction-date">{{transactionData.date | date: 'd MMM, y'}}</span>
+        <span class="transaction-account">{{transactionData.account}}</span>
+        <span class="transaction-other-party">{{transactionData.otherParty}}</span>
+        <span class="transaction-type">
+          <nr-chips [type]="transactionData.type === 'sent' ? 'success': 'info'">{{transactionData.type}}</nr-chips>
+        </span>
+        <span class="transaction-direction">{{transactionData.direction}}</span>
+        <span class="transaction-amount">{{transactionData.amount | currency }}</span>
+        <span class="transaction-menu">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Transaction actions menu"
+                  class="transaction-action-menu-btn">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>Remove</span>
+            </button>
+          </mat-menu>
+        </span>
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <div class="transaction-body">
+      <div class="transaction-body-header" matSort (matSortChange)="sortData($event)">
+        <div mat-sort-header="date" class="transaction-body-header-date">Date</div>
+        <div mat-sort-header="account" class="transaction-body-header-account">Account</div>
+        <div mat-sort-header="debit" class="transaction-body-header-debit">Debit</div>
+        <div mat-sort-header="credit" class="transaction-body-header-credit">Credit</div>
+      </div>
+      <div class="transaction-body-content" *ngFor="let detailsItem of sortedData">
+        <div class="transaction-body-content-date">{{detailsItem.date | date: 'd MMM, y'}}</div>
+        <div class="transaction-body-content-account">{{detailsItem.account}}</div>
+        <div class="transaction-body-content-debit">{{detailsItem.debit | currency}}</div>
+        <div class="transaction-body-content-credit">{{detailsItem.credit | currency}}</div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</div>

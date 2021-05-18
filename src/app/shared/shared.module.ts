@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSortModule} from '@angular/material/sort';
 
 
 @NgModule({
@@ -11,13 +13,19 @@ import {MatExpansionModule} from "@angular/material/expansion";
     CommonModule,
     MatSidenavModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule,
+    MatSortModule
+
   ],
-  exports:[
+  exports: [
     CommonModule,
     MatSidenavModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule,
+    MatSortModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

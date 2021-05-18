@@ -1,6 +1,8 @@
 @import "shared";
 
 .user-settings {
+  user-select: none;
+  cursor: pointer;
 
   .user-settings-header {
     display: flex;
@@ -23,6 +25,13 @@
     & .name {
       font-weight: bold;
       margin-left: 15px;
+    }
+  }
+
+  &-list {
+    &-item {
+      cursor: pointer;
+      user-select: none;
     }
   }
 }

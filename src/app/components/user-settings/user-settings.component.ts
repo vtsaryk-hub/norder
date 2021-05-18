@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
-import {IUser} from "../../interfaces/iuser";
+import {UserInterface} from "../../interfaces/user.interface";
 
 @Component({
   selector: 'nr-user-settings',
@@ -8,7 +8,7 @@ import {IUser} from "../../interfaces/iuser";
   styleUrls: ['./user-settings.component.scss']
 })
 export class UserSettingsComponent implements OnInit {
-  userData: IUser | null = null;
+  userData: UserInterface | null = null;
 
   constructor(private userAuthService: UserAuthService) {
     userAuthService.$user.subscribe(value => {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'nr-search',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @Output() onInput = new EventEmitter(true);
+  @Input() placeholder: string = '';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

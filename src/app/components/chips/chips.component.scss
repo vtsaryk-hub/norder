@@ -1,0 +1,27 @@
+@import "shared";
+
+.chips {
+  border-radius: 16px;
+  display: inline-block;
+  padding: 5px 10px;
+  text-transform: capitalize;
+
+  &.alert {
+
+  }
+
+  &.success {
+    // todo: add colors to variables
+    background-color: rgb(235, 249, 244);
+    color: rgb(84, 204, 160)
+  }
+
+  &.info {
+    background-color: rgb(241, 240, 252);
+    color: $norder-purple-color
+  }
+
+  &.warning {
+
+  }
+}

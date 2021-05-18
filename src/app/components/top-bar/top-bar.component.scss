@@ -3,7 +3,8 @@
 .top-bar {
   display: flex;
   justify-content: space-between;
-  padding: 15px 40px 40px 10px;
+  align-items: center;
+  padding: 15px 40px 0 10px;
 
   .menu-btn {
     display: flex;
@@ -11,6 +12,7 @@
     align-items: center;
     padding: 15px;
     cursor: pointer;
+    user-select: none;
 
     .hamburger-icon {
       width: 20px;

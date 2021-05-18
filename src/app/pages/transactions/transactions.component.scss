@@ -1,0 +1,131 @@
+@import "shared";
+
+.chevron {
+  content: "\e905";
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  transform: rotate(90deg);
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pagination-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.transactions {
+  &-table {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 25px;
+  }
+
+  &-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &-add-btn {
+    background-color: $norder-purple-color;
+    color: white;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  &-table-sort-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 10px 16px 10px 5rem;
+    user-select: none;
+    background-color: $norder-second-color;
+    margin-bottom: 10px;
+
+    & > *:nth-child(1) {
+      flex: 5;
+    }
+
+    & > *:nth-child(2) {
+      flex: 8;
+    }
+
+    & > *:nth-child(3) {
+      flex: 12;
+    }
+
+    & > *:nth-child(4) {
+      flex: 6;
+    }
+
+    & > *:nth-child(5) {
+      flex: 6;
+    }
+
+    & > *:nth-child(6) {
+      flex: 5;
+    }
+
+    & > *:nth-child(7) {
+      flex: 1;
+    }
+  }
+
+  // ngx-pagination styling
+  ::ng-deep .ngx-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    li:not(.small-screen) {
+      &.current, & a {
+        @extend .pagination-btn
+      }
+
+      a:hover {
+        //
+      }
+    }
+
+    .pagination-next.disabled,
+    .pagination-next > a,
+    .pagination-previous.disabled,
+    .pagination-previous > a {
+      @extend .pagination-btn
+    }
+
+    .pagination-previous.disabled:before,
+    .pagination-next.disabled:after,
+    .pagination-previous > a:before,
+    .pagination-next > a:after {
+      @extend .chevron;
+      margin: 0;
+    }
+
+    .pagination-next.disabled:after,
+    .pagination-next > a:after {
+      transform: rotate(-90deg);
+    }
+
+    .current {
+      background-color: $norder-purple-color;
+      color: #ffffff;
+    }
+  }
+}

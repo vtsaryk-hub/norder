@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {IUser} from "../interfaces/iuser";
+import {UserInterface} from "../interfaces/user.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserAuthService {
-  $user: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null)
+  $user: BehaviorSubject<UserInterface | null> = new BehaviorSubject<UserInterface | null>(null)
   constructor() {
   }
 

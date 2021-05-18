@@ -52,10 +52,22 @@ ul, li {
 }
 
 @import "scss/shared";
-.page {
-  background-color: $norder-second-color;
-}
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  &,
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+button, *[role='button'], *[class*="btn"] {
+  user-select: none;
 }

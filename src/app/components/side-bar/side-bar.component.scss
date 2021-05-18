@@ -119,14 +119,13 @@ span[class^="icon"] {
       color: inherit !important;
     }
   }
-}
+  ::ng-deep .mat-expansion-panel {
+    &-content {
+      font: inherit !important;
+    }
 
-::ng-deep .mat-expansion-panel {
-  &-content {
-    font: inherit !important;
-  }
-
-  &-body {
-    padding: 25px 0 0 25px !important;
+    &-body {
+      padding: 25px 0 0 25px !important;
+    }
   }
 }
