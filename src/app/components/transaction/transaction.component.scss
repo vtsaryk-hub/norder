@@ -19,7 +19,7 @@
       cursor: default !important;
       padding: 0 0 0 5rem !important;
 
-      &:hover {
+      &:not(.mat-expanded):hover {
         background-color: $norder-second-color !important;
       }
 
