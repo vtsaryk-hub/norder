@@ -1,4 +1,4 @@
-import {ITransactionDetails} from "./transaction-details.interface";
+import {ITransactionImpactedAccounts} from "./transaction-impacted-accounts.interface";
 
 export type transactionType = 'sent' | 'received';
 export type transactionDirection = 'invoice' | 'payment';
@@ -10,5 +10,6 @@ export interface ITransaction {
   type: transactionType;
   direction: transactionDirection;
   amount: number;
-  details: ITransactionDetails[]
+  details: string;
+  impactedAccounts: ITransactionImpactedAccounts[];
 }

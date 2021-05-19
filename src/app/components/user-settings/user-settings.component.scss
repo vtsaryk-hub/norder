@@ -4,11 +4,19 @@
   user-select: none;
   cursor: pointer;
 
+  .icon-chevron {
+    font-size: 1.3rem;
+    margin-left: 10px;
+
+    &:before {
+      color: inherit;
+    }
+  }
+
   .user-settings-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
 
     & .avatar {
       width: 40px;
@@ -40,6 +48,7 @@
 ::ng-deep .user-settings-menu {
   // todo fix box shadow with original colors
   //box-shadow: none !important;
+  margin-top: 15px;
   border-top: 2px solid $norder-purple-color;
   border-radius: 2px !important;
 
