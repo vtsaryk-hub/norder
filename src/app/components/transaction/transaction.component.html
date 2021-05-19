@@ -40,11 +40,11 @@
         <div mat-sort-header="debit" class="transaction-body-header-debit">Debit</div>
         <div mat-sort-header="credit" class="transaction-body-header-credit">Credit</div>
       </div>
-      <div class="transaction-body-content" *ngFor="let detailsItem of sortedData">
-        <div class="transaction-body-content-date">{{detailsItem.date | date: 'd MMM, y'}}</div>
-        <div class="transaction-body-content-account">{{detailsItem.account}}</div>
-        <div class="transaction-body-content-debit">{{detailsItem.debit | currency}}</div>
-        <div class="transaction-body-content-credit">{{detailsItem.credit | currency}}</div>
+      <div class="transaction-body-content" *ngFor="let impactedAccount of sortedData">
+        <div class="transaction-body-content-date">{{impactedAccount.date | date: 'd MMM, y'}}</div>
+        <div class="transaction-body-content-account">{{impactedAccount.account}}</div>
+        <div class="transaction-body-content-debit">{{impactedAccount.debit | currency}}</div>
+        <div class="transaction-body-content-credit">{{impactedAccount.credit | currency}}</div>
       </div>
     </div>
   </mat-expansion-panel>

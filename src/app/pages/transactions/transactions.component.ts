@@ -20,7 +20,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'payment',
       amount: 400,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 7), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 7), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 7), account: 'GST Payable', debit: 64.3},
@@ -33,7 +34,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'invoice',
       amount: 380,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 6), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 6), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 6), account: 'GST Payable', debit: 64.3},
@@ -46,7 +48,8 @@ export class TransactionsComponent implements OnInit {
       type: 'received',
       direction: 'invoice',
       amount: 384.5,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 5), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 5), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 5), account: 'GST Payable', debit: 64.3},
@@ -59,7 +62,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'payment',
       amount: 400,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 7), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 7), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 7), account: 'GST Payable', debit: 64.3},
@@ -72,7 +76,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'invoice',
       amount: 380,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 6), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 6), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 6), account: 'GST Payable', debit: 64.3},
@@ -85,7 +90,8 @@ export class TransactionsComponent implements OnInit {
       type: 'received',
       direction: 'invoice',
       amount: 384.5,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 5), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 5), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 5), account: 'GST Payable', debit: 64.3},
@@ -98,7 +104,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'payment',
       amount: 400,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 7), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 7), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 7), account: 'GST Payable', debit: 64.3},
@@ -111,7 +118,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'invoice',
       amount: 380,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 6), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 6), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 6), account: 'GST Payable', debit: 64.3},
@@ -124,7 +132,8 @@ export class TransactionsComponent implements OnInit {
       type: 'received',
       direction: 'invoice',
       amount: 384.5,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 5), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 5), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 5), account: 'GST Payable', debit: 64.3},
@@ -137,7 +146,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'payment',
       amount: 400,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 7), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 7), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 7), account: 'GST Payable', debit: 64.3},
@@ -150,7 +160,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'invoice',
       amount: 380,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 6), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 6), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 6), account: 'GST Payable', debit: 64.3},
@@ -163,7 +174,8 @@ export class TransactionsComponent implements OnInit {
       type: 'received',
       direction: 'invoice',
       amount: 384.5,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 5), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 5), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 5), account: 'GST Payable', debit: 64.3},
@@ -176,7 +188,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'payment',
       amount: 400,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 7), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 7), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 7), account: 'GST Payable', debit: 64.3},
@@ -189,7 +202,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'invoice',
       amount: 380,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 6), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 6), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 6), account: 'GST Payable', debit: 64.3},
@@ -202,7 +216,8 @@ export class TransactionsComponent implements OnInit {
       type: 'received',
       direction: 'invoice',
       amount: 384.5,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 5), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 5), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 5), account: 'GST Payable', debit: 64.3},
@@ -215,7 +230,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'payment',
       amount: 400,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 7), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 7), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 7), account: 'GST Payable', debit: 64.3},
@@ -228,7 +244,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'invoice',
       amount: 380,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 6), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 6), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 6), account: 'GST Payable', debit: 64.3},
@@ -241,7 +258,8 @@ export class TransactionsComponent implements OnInit {
       type: 'received',
       direction: 'invoice',
       amount: 384.5,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 5), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 5), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 5), account: 'GST Payable', debit: 64.3},
@@ -254,7 +272,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'payment',
       amount: 400,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 7), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 7), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 7), account: 'GST Payable', debit: 64.3},
@@ -267,7 +286,8 @@ export class TransactionsComponent implements OnInit {
       type: 'sent',
       direction: 'invoice',
       amount: 380,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 6), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 6), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 6), account: 'GST Payable', debit: 64.3},
@@ -280,7 +300,8 @@ export class TransactionsComponent implements OnInit {
       type: 'received',
       direction: 'invoice',
       amount: 384.5,
-      details: [
+      details: 'Here should be some "details text"',
+      impactedAccounts: [
         {date: new Date(2021, 0, 5), account: 'Cash', debit: 400},
         {date: new Date(2021, 0, 5), account: 'Consulting Fees', credit: 345.7},
         {date: new Date(2021, 0, 5), account: 'GST Payable', debit: 64.3},
