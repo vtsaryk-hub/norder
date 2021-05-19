@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  @Input() drawer: any;
+  @Input() sidenav: any;
   isOpened: boolean = false;
 
   constructor() {
@@ -17,6 +17,6 @@ export class TopBarComponent implements OnInit {
 
   menuToggle() {
     this.isOpened = !this.isOpened;
-    this.drawer.toggle()
+    this.sidenav.toggle()
   }
 }

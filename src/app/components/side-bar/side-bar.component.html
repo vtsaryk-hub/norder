@@ -1,45 +1,47 @@
 <div class="side-bar">
-  <div class="menu">
-    <img src="./assets/img/logo.png" alt="Norder Logo" class="menu-logo">
-    <h3 class="menu-header">menu</h3>
-    <ul class="menu-list">
-      <li class="menu-item" [class.active]="rlc1.isActive"><a routerLink="transactions" routerLinkActive="active"
-                                                              #rlc1="routerLinkActive" class="menu-item-link"><span
-        class="icon-wallet"></span>Transactions</a>
-      </li>
-      <li class="menu-item" [class.active]="rlc2.isActive"><a routerLink="chart-of-accounts" routerLinkActive="active"
-                                                              #rlc2="routerLinkActive" class="menu-item-link"><span
-        class="icon-person"></span>Chart
-        of
-        Accounts</a></li>
-      <li class="menu-item" [class.active]="rls1.isActive||rls2.isActive||rls3.isActive"
-          [class.opened]="$panelOpenState.getValue()">
-        <mat-expansion-panel (opened)="setPanelState(true)" (closed)="setPanelState(false)"
-                             [expanded]="rls1.isActive||rls2.isActive||rls3.isActive">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <span class="icon-doc"></span>Financial Reports
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <ul class="sub-menu">
-            <li class="sub-menu-item" [class.active]="rls1.isActive">
-              <a routerLink="statement-of-cashflows" class="menu-item-link" routerLinkActive="active"
-                 #rls1="routerLinkActive">Statement of Cashflows</a>
-            </li>
-            <li class="sub-menu-item" [class.active]="rls2.isActive">
-              <a routerLink="income-statement" class="menu-item-link" routerLinkActive="active"
-                 #rls2="routerLinkActive">Income Statement</a>
-            </li>
-            <li class="sub-menu-item" [class.active]="rls3.isActive">
-              <a routerLink="balance-sheet" routerLinkActive="active"
-                 #rls3="routerLinkActive" class="menu-item-link">Balance Sheet</a>
-            </li>
-          </ul>
-        </mat-expansion-panel>
-      </li>
-    </ul>
-  </div>
-  <div class="side-logout-btn" *ngIf="userAuthorized" (click)="logout()">
-    <span class="icon-logout"></span>Logout
+  <div class="side-bar-wrapper">
+    <div class="menu">
+      <img src="./assets/img/logo.png" alt="Norder Logo" class="menu-logo">
+      <h3 class="menu-header">menu</h3>
+      <ul class="menu-list">
+        <li class="menu-item" [class.active]="rlc1.isActive"><a routerLink="transactions" routerLinkActive="active"
+                                                                #rlc1="routerLinkActive" class="menu-item-link"><span
+          class="icon-wallet"></span>Transactions</a>
+        </li>
+        <li class="menu-item" [class.active]="rlc2.isActive"><a routerLink="chart-of-accounts" routerLinkActive="active"
+                                                                #rlc2="routerLinkActive" class="menu-item-link"><span
+          class="icon-person"></span>Chart
+          of
+          Accounts</a></li>
+        <li class="menu-item" [class.active]="rls1.isActive||rls2.isActive||rls3.isActive"
+            [class.opened]="$panelOpenState.getValue()">
+          <mat-expansion-panel (opened)="setPanelState(true)" (closed)="setPanelState(false)"
+                               [expanded]="rls1.isActive||rls2.isActive||rls3.isActive">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="icon-doc"></span>Financial Reports
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="sub-menu">
+              <li class="sub-menu-item" [class.active]="rls1.isActive">
+                <a routerLink="statement-of-cashflows" class="menu-item-link" routerLinkActive="active"
+                   #rls1="routerLinkActive">Statement of Cashflows</a>
+              </li>
+              <li class="sub-menu-item" [class.active]="rls2.isActive">
+                <a routerLink="income-statement" class="menu-item-link" routerLinkActive="active"
+                   #rls2="routerLinkActive">Income Statement</a>
+              </li>
+              <li class="sub-menu-item" [class.active]="rls3.isActive">
+                <a routerLink="balance-sheet" routerLinkActive="active"
+                   #rls3="routerLinkActive" class="menu-item-link">Balance Sheet</a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        </li>
+      </ul>
+    </div>
+    <div class="side-logout-btn" *ngIf="userAuthorized" (click)="logout()">
+      <span class="icon-logout"></span>Logout
+    </div>
   </div>
 </div>

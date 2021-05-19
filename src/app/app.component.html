@@ -1,12 +1,12 @@
-<mat-drawer-container autosize>
-  <mat-drawer #drawer mode="side">
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" [fixedInViewport]="true">
     <nr-side-bar></nr-side-bar>
-  </mat-drawer>
+  </mat-sidenav>
 
   <div class="main">
-    <nr-top-bar [drawer]="drawer"></nr-top-bar>
+    <nr-top-bar [sidenav]="sidenav"></nr-top-bar>
     <router-outlet></router-outlet>
     <nr-footer></nr-footer>
   </div>
 
-</mat-drawer-container>
+</mat-sidenav-container>
