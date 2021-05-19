@@ -4,6 +4,13 @@
   </mat-sidenav>
 
   <div class="main">
+    <div class="menu-btn" (click)="sidenav.toggle()">
+      <div class="hamburger-icon" [class.open]="sidenav.opened">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </div>
+    </div>
     <nr-top-bar [sidenav]="sidenav"></nr-top-bar>
     <router-outlet></router-outlet>
     <nr-footer></nr-footer>
