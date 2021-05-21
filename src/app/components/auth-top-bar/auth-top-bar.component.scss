@@ -1,0 +1,66 @@
+@import "shared";
+
+.auth-top-bar{
+  &-with-social {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-social-btn {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    // recommended styles from Google
+    color: #fff;
+    width: 170px;
+    img {
+      max-height: 34px;
+    }
+
+    span {
+      margin-left: 15px;
+    }
+
+    &.google{
+      background-color: #4285F4;
+    }
+    &.facebook{
+      padding: 5px;
+      background-color: #4267b2;
+      span{
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &-divider-or {
+    position: relative;
+    height: 1px;
+    background-color: $norder-input-color;
+    margin: 40px 0;
+
+    &:before {
+      padding: 10px;
+      display: inline-block;
+      content: "or";
+      background: #fff;
+      color: $norder-main-color;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 600;
+    }
+  }
+
+  &-header {
+    @extend .nr-header-mid;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  &-description {
+    text-align: center;
+  }
+}

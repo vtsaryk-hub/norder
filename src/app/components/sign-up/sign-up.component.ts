@@ -1,20 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
 import {
   AbstractControl,
   AbstractControlOptions,
-  FormBuilder,
-  FormGroup,
+  FormBuilder, FormGroup,
   ValidationErrors,
   Validators
 } from "@angular/forms";
+import {Router} from "@angular/router";
+import {AbstractAuthorizationComponent} from "../abstract-authorization/abstract-authorization.component";
 
 @Component({
   selector: 'nr-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent extends AbstractAuthorizationComponent {
+  @Output() onNavigate = new EventEmitter()
   newUserForm = this.fb.group({
 
     displayName: ['', [Validators.required]],
@@ -25,7 +27,8 @@ export class SignUpComponent implements OnInit {
     }, {validators: [this.isPasswordEquals], updateOn: "blur"} as AbstractControlOptions)
   })
 
-  constructor(private fb: FormBuilder, private userAuthService: UserAuthService) {
+  constructor(private fb: FormBuilder, userAuthService: UserAuthService) {
+    super(userAuthService)
   }
 
   private isPasswordEquals(control: AbstractControl): ValidationErrors | null {
@@ -34,20 +37,8 @@ export class SignUpComponent implements OnInit {
     return password === confirmPassword ? null : {notEquals: true}
   }
 
-  ngOnInit(): void {
-    const a = 10;
-
-  }
-
-  signUp() {
-
-  }
-
-  signUpWithGoogle() {
-    this.userAuthService.googleAuth();
-  }
-
-  signUpWithFacebook() {
-    // this.userAuthService.facebookAuth()
+  submit(form: FormGroup) {
+    console.log(form.valid)
+    super.submit(form);
   }
 }

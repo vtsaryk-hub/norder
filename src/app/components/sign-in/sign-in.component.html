@@ -1,1 +1,22 @@
-<p>sign-in works!</p>
+<div class="sign-in">
+  <form [formGroup]="userForm" class="sign-in-form" (submit)="submit(userForm)">
+    <label class="sign-in-label">
+      Email
+      <input class="sign-in-input" type="text" formControlName="email" placeholder="example@example.com">
+    </label>
+
+    <label class="sign-in-label">
+      Password
+      <input class="sign-in-input" type="password" formControlName="password" placeholder="password">
+      <!--      todo add eye icon and function to control it-->
+    </label>
+
+    <p class="sign-in-forgot-pass">
+      <a role="link" class="sign-in-link" (click)="onNavigate.emit('/forgot-password')">forgot password?</a>
+    </p>
+    <button type="submit" class="sign-in-submit-btn">sign in</button>
+  </form>
+  <p class="sign-in-alternate">
+    New user? <a role="link" class="sign-in-link" (click)="onNavigate.emit('/sign-up')">Create an account</a>
+  </p>
+</div>

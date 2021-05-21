@@ -17,6 +17,8 @@ import {VerifyEmailComponent} from './components/verify-email/verify-email.compo
 import {UserAuthService} from "./services/user-auth.service";
 import {AuthGuard} from "./guards/auth.guard";
 import { AuthComponent } from './pages/auth/auth.component';
+import { AbstractAuthorizationComponent } from './components/abstract-authorization/abstract-authorization.component';
+import { AuthTopBarComponent } from './components/auth-top-bar/auth-top-bar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { AuthComponent } from './pages/auth/auth.component';
     ChangePasswordComponent,
     VerifyEmailComponent,
     AuthComponent,
+    AbstractAuthorizationComponent,
+    AuthTopBarComponent,
   ],
   imports: [
     BrowserModule,

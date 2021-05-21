@@ -1,17 +1,4 @@
 <div class="sign-up">
-  <h1 class="sign-up-header">Create NORDEX account</h1>
-  <p class="sign-up-description">Join us today!</p>
-  <div class="sign-up-with-social">
-    <div class="sign-up-social-btn google" (click)="signUpWithGoogle()">
-      <img src="./assets/img/icons/google.svg" alt="">
-      <span>with Google</span>
-    </div>
-    <div class="sign-up-social-btn facebook" (click)="signUpWithFacebook()">
-      <img src="https://www.facebook.com/rsrc.php/v3/yN/r/szGrb_tkxMW.png" alt="">
-      <span>with Facebook</span>
-    </div>
-  </div>
-  <div class="sign-up-divider-or"></div>
   <form [formGroup]="newUserForm" class="sign-up-form">
     <label class="sign-up-label">
       Full Name
@@ -33,10 +20,13 @@
       </label>
     </ng-container>
     <p class="sign-up-rules">
-      By signing up, you agree to our <a routerlink="terms" class="sign-up-rules-link">Terms and Conditions</a>
-      & <a routerlink="privacy policy" class="sign-up-rules-link">Privacy Policy</a>
+      By signing up, you agree to our <a [routerLink]="['/terms-and-conditions']" class="sign-up-link">Terms and Conditions</a>
+      & <a [routerLink]="['/privacy-policy']" class="sign-up-link">Privacy Policy</a>
     </p>
-    <button (click)="signUp()" class="sign-up-submit-btn">sign up</button>
+    <button (click)="submit(newUserForm)" class="sign-up-submit-btn">sign up</button>
   </form>
+  <p class="sign-up-alternate">
+    Already have account? <a class="sign-up-link" (click)="onNavigate.emit('sign-in')">Login</a>
+  </p>
 </div>
 

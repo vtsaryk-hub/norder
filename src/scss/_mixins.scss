@@ -4,6 +4,41 @@
   background-color: $norder-second-color;
   padding: 50px 60px;
 }
+
+@mixin auth{
+  margin: 15px;
+
+  &-label {
+    @extend .nr-label
+  }
+
+  &-input {
+    @extend .nr-input
+  }
+
+  &-submit-btn {
+    @extend .nr-btn-info;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 40px;
+  }
+
+  &-rules {
+    @extend .nr-sub-text;
+    text-align: center;
+    line-height: 1.3rem;
+  }
+  &-link {
+    color: $norder-main-color;
+    cursor: pointer;
+  }
+  &-alternate{
+    text-align: center;
+    color: $norder-input-color;
+  }
+}
 .nr-sub-text{
   font-size: 0.8rem;
   font-weight: 200;
