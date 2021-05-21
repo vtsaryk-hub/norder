@@ -10,10 +10,10 @@ import User = firebase.User;
   styleUrls: ['./user-settings.component.scss']
 })
 export class UserSettingsComponent implements OnInit {
-  userData: IUser | User | null = null;
+  userData: User | null = null;
 
   constructor(private userAuthService: UserAuthService) {
-    userAuthService.userData.subscribe(userData => {
+    userAuthService.user.subscribe(userData => {
       this.userData = userData;
     })
   }

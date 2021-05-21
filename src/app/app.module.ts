@@ -16,9 +16,13 @@ import {ChangePasswordComponent} from './components/change-password/change-passw
 import {VerifyEmailComponent} from './components/verify-email/verify-email.component';
 import {UserAuthService} from "./services/user-auth.service";
 import {AuthGuard} from "./guards/auth.guard";
-import { AuthComponent } from './pages/auth/auth.component';
-import { AbstractAuthorizationComponent } from './components/abstract-authorization/abstract-authorization.component';
-import { AuthTopBarComponent } from './components/auth-top-bar/auth-top-bar.component';
+import {AuthComponent} from './pages/auth/auth.component';
+import {AbstractAuthorizationComponent} from './components/abstract-authorization/abstract-authorization.component';
+import {AuthTopBarComponent} from './components/auth-top-bar/auth-top-bar.component';
+import {EmailVerifiedGuard} from "./guards/email-verified.guard";
+import {AuthBaseComponent} from './components/auth-base/auth-base.component';
+import {NotAuthGuard} from "./guards/not-auth.guard";
+import {NotEmailVerifiedGuard} from "./guards/not-email-verified.guard";
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { AuthTopBarComponent } from './components/auth-top-bar/auth-top-bar.comp
     AuthComponent,
     AbstractAuthorizationComponent,
     AuthTopBarComponent,
+    AuthBaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,7 @@ import { AuthTopBarComponent } from './components/auth-top-bar/auth-top-bar.comp
     AppRoutingModule,
     SharedModule
   ],
-  providers: [UserAuthService, AuthGuard],
+  providers: [UserAuthService, AuthGuard, EmailVerifiedGuard, NotAuthGuard, NotEmailVerifiedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,34 +1,33 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 import {UserAuthService} from "../../services/user-auth.service";
+import {AuthBaseComponent} from "../auth-base/auth-base.component";
 
 @Component({
   selector: 'nr-abstract-authorization',
   template: ``,
   styleUrls: ['./abstract-authorization.component.scss']
 })
-export class AbstractAuthorizationComponent implements OnInit {
-  @Output() onNavigate = new EventEmitter()
+export class AbstractAuthorizationComponent extends AuthBaseComponent{
 
   constructor(private userAuthService: UserAuthService) {
+    super();
   }
 
-  ngOnInit(): void {
+  googleAuth() {
+    this.userAuthService.googleAuth();
   }
 
-  googleAuth(){
-    //this.userAuthService.googleAuth();
-    console.log('google')
+  facebookAuth() {
+    this.userAuthService.facebookAuth()
   }
 
-  facebookAuth(){
-    // this.userAuthService.facebookAuth()
-    console.log('facebook')
-
-  }
-
-  submit(form: FormGroup) {
-    console.log(form)
+  submit(form: FormGroup, flag: string) {
+    if (flag === 'in' && form.valid) {
+      this.userAuthService.signIn(form.get('email')?.value, form.get('password')?.value)
+    } else if (flag === 'up' && form.valid) {
+      this.userAuthService.signUp(form.get('email')?.value, form.get('passwordGroup')?.get('password')?.value, form.get('displayName')?.value)
+    }
   }
 
 }

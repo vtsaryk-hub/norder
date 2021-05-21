@@ -1,0 +1,38 @@
+[debug] [2021-05-21T18:20:49.715Z] ----------------------------------------------------------------------
+[debug] [2021-05-21T18:20:49.719Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2021-05-21T18:20:49.719Z] CLI Version:   9.10.2
+[debug] [2021-05-21T18:20:49.719Z] Platform:      win32
+[debug] [2021-05-21T18:20:49.719Z] Node Version:  v12.16.2
+[debug] [2021-05-21T18:20:49.724Z] Time:          Fri May 21 2021 21:20:49 GMT+0300 (GMT+03:00)
+[debug] [2021-05-21T18:20:49.724Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-21T18:20:49.728Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-05-21T18:20:49.765Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-21T18:20:49.765Z] > authorizing via signed-in user (maratstorage101@gmail.com)
+[debug] [2021-05-21T18:20:49.765Z] [iam] checking project norder-7640d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-05-21T18:20:49.768Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-21T18:20:49.768Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-21T18:20:49.970Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Fri, 21 May 2021 18:20:48 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-21T18:20:49.987Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/norder-7640d:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-05-21T18:20:50.301Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-05-21T18:20:50.302Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-05-21T18:20:50.832Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 21 May 2021 18:20:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=686","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-21T18:20:50.834Z] > refreshing access token with scopes: []
+[debug] [2021-05-21T18:20:50.835Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-21T18:20:51.004Z] <<< HTTP RESPONSE 200 {"date":"Fri, 21 May 2021 18:20:49 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-21T18:20:51.030Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/norder-7640d [none]
+[debug] [2021-05-21T18:20:51.284Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/norder-7640d 200
+[debug] [2021-05-21T18:20:51.285Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/norder-7640d {"projectId":"norder-7640d","projectNumber":"663356150364","displayName":"Norder","name":"projects/norder-7640d","resources":{"hostingSite":"norder-7640d","storageBucket":"norder-7640d.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'norder-7640d'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-05-21T18:20:51.294Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-21T18:20:51.295Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-21T18:20:51.471Z] <<< HTTP RESPONSE 200 {"date":"Fri, 21 May 2021 18:20:50 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-21T18:20:51.489Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/norder-7640d/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}

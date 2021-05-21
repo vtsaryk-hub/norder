@@ -1,2 +1,8 @@
-<p>you will be here while verify account...</p>
-<button>check</button>
+<div class="verify-email">
+  <button type="button" class="verify-email-resend" (click)="userAuthService.sendVerificationMail()">
+    Resend Verification Email
+  </button>
+  <div class="verify-email-redirect-links">
+    <a (click)="onNavigate.emit('/sign-in')">Go to sign in</a><a (click)="onNavigate.emit('/sign-up')">go to sign up</a>
+  </div>
+</div>

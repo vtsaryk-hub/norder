@@ -16,9 +16,7 @@ import {AbstractAuthorizationComponent} from "../abstract-authorization/abstract
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent extends AbstractAuthorizationComponent {
-  @Output() onNavigate = new EventEmitter()
   newUserForm = this.fb.group({
-
     displayName: ['', [Validators.required]],
     email: ['', [Validators.required]],
     passwordGroup: this.fb.group({
@@ -27,7 +25,7 @@ export class SignUpComponent extends AbstractAuthorizationComponent {
     }, {validators: [this.isPasswordEquals], updateOn: "blur"} as AbstractControlOptions)
   })
 
-  constructor(private fb: FormBuilder, userAuthService: UserAuthService) {
+  constructor(private fb: FormBuilder, userAuthService: UserAuthService, router: Router) {
     super(userAuthService)
   }
 
@@ -38,7 +36,8 @@ export class SignUpComponent extends AbstractAuthorizationComponent {
   }
 
   submit(form: FormGroup) {
-    console.log(form.valid)
-    super.submit(form);
+    if (form.valid) {
+      super.submit(form, 'up');
+    }
   }
 }

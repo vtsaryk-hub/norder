@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ITransactionImpactedAccounts} from "../../interfaces/transaction-impacted-accounts.interface";
 import {Sort} from "@angular/material/sort";
-import {ITransaction} from "../../interfaces/transaction.interface";
 import {compare} from "../../utils/utils";
 
 @Component({

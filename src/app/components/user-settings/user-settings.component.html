@@ -17,7 +17,7 @@
     </div>
     <mat-menu #beforeMenu="matMenu" class="user-settings-menu" xPosition="before">
       <ul class="user-settings-list">
-        <li class="user-settings-list-item">Change password</li>
+        <li class="user-settings-list-item" role="link" [routerLink]="['change-password']">Change password</li>
         <li class="user-settings-list-item" (click)="logout()">Logout</li>
       </ul>
     </mat-menu>

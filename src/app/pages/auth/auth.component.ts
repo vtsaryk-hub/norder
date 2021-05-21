@@ -1,6 +1,7 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
-import {NavigationEnd, NavigationStart, Router} from "@angular/router";
+import {Router} from "@angular/router";
+import {UserAuthService} from "../../services/user-auth.service";
 
 @Component({
   selector: 'nr-auth',
@@ -11,21 +12,15 @@ export class AuthComponent implements OnInit {
   globalTabIndex: number = 0;
   tabIndex: number = 0;
 
-  constructor(private ngZone: NgZone, private router: Router, private location: Location) {
+  constructor(private ngZone: NgZone, private router: Router, private location: Location, userAuthService: UserAuthService) {
     location.subscribe((val: any) => {
       this.urlParse(val.url)
-    })
-    router.events.subscribe((event)=>{
-      if(event instanceof NavigationStart){
-        // event.preventDefault()
-      }
     })
   }
 
   ngOnInit(): void {
     const url = this.router.url;
     this.urlParse(url);
-
   }
 
   navigation(url: string) {
@@ -34,7 +29,7 @@ export class AuthComponent implements OnInit {
   }
 
   private urlParse(url: string) {
-     switch (url) {
+    switch (url) {
       case '/sign-up':
         this.globalTabIndex = 0;
         this.tabIndex = 1;
@@ -44,6 +39,9 @@ export class AuthComponent implements OnInit {
         break;
       case '/verify-email':
         this.globalTabIndex = 2;
+        break;
+      case '/change-password':
+        this.globalTabIndex = 3;
         break;
       case '/sign-in':
       default:

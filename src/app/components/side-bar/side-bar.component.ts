@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit, Output} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
 import {BehaviorSubject, Subject} from "rxjs";
 
@@ -9,13 +9,14 @@ import {BehaviorSubject, Subject} from "rxjs";
 })
 export class SideBarComponent implements OnInit {
   $panelOpenState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-
-  // todo fix that mock prop
   userAuthorized: boolean = false;
 
-  constructor(private userAuthService: UserAuthService) {
-    this.userAuthService.userData.subscribe(userData => {
-      this.userAuthorized = !!userData
+  constructor(private userAuthService: UserAuthService, private ngZone: NgZone) {
+    this.userAuthService.user.subscribe(userData => {
+      this.userAuthorized = !!userData;
+      if (!this.userAuthorized) {
+        ///////////////////
+      }
     })
   }
 

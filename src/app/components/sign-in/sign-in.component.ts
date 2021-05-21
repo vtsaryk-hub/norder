@@ -19,7 +19,9 @@ export class SignInComponent extends AbstractAuthorizationComponent {
   }
 
   submit(form: FormGroup) {
-    console.log(form.valid)
-    super.submit(form);
+    // todo add validation messages
+    if(form.valid){
+      super.submit(form, 'in');
+    }
   }
 }

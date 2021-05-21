@@ -14,7 +14,6 @@ import User = firebase.User;
   providedIn: 'root'
 })
 export class UserAuthService {
-  userData: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null);
   user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
   constructor(
@@ -28,22 +27,28 @@ export class UserAuthService {
         localStorage.setItem('user', JSON.stringify(user));
         this.user.next(user);
       } else {
-        this.userData.next(null);
+        this.user.next(null);
         localStorage.removeItem('user')
       }
     })
   }
 
   get isLoggedIn(): boolean {
+    return !!JSON.parse(<string>localStorage.getItem('user'));
+  }
+
+  get isEmailVerified(): boolean {
+    const user = JSON.parse(<string>localStorage.getItem('user'));
+    return user.emailVerified;
+  }
+
+  get isLoggedInAndEmailVerified(): boolean {
     const user = JSON.parse(<string>localStorage.getItem('user'));
     return user !== null && user.emailVerified;
   }
 
   private setUserData(user: any, displayName: string = '') {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    userRef.valueChanges().subscribe((data) => {
-      this.userData.next(data);
-    });
     const userName = user.displayName || displayName;
 
     const userData: IUser = {
@@ -56,13 +61,6 @@ export class UserAuthService {
     return userRef.set(userData, {
       merge: true
     })
-  }
-
-  private sendVerificationMail() {
-    return this.afAuth.currentUser.then(user => user?.sendEmailVerification())
-      .then(() => {
-        this.router.navigate(['verify-email']);
-      })
   }
 
   private authLogin(provider: AuthProvider) {
@@ -109,13 +107,37 @@ export class UserAuthService {
     return `https://eu.ui-avatars.com/api/?name=${name}&background=${colors[randomInteger(9, colors.length - 1)]}&color=fff&size=256`;
   }
 
+  private redirect(flag: boolean) {
+    this.ngZone.run(() => {
+      if (flag) {
+        this.router.navigate(['transactions']);
+      } else {
+        this.router.navigate(['verify-email']);
+      }
+    })
+  }
+
+  public sendVerificationMail() {
+    return this.afAuth.currentUser.then(user => {
+      if (!user?.emailVerified) {
+        return user?.sendEmailVerification({
+          url: location.origin + '/transactions'
+        })
+      } else {
+        return Promise.resolve();
+      }
+
+    })
+      .then(() => {
+        this.router.navigate(['verify-email']);
+      })
+  }
+
   public signIn(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result: UserCredential) => {
         if (result.user) {
-          this.ngZone.run(() => {
-            this.router.navigate(['transactions']);
-          })
+          this.redirect(result.user?.emailVerified)
           this.setUserData(result.user)
         }
       }).catch((error) => {
@@ -129,6 +151,7 @@ export class UserAuthService {
       .then((result: UserCredential) => {
           if (result.user) {
             this.sendVerificationMail();
+            this.redirect(result.user?.emailVerified)
             this.setUserData(result.user, displayName)
           }
         }
@@ -138,6 +161,10 @@ export class UserAuthService {
       })
   }
 
+  public facebookAuth() {
+    return this.authLogin(new auth.FacebookAuthProvider())
+  }
+
   public googleAuth() {
     return this.authLogin(new auth.GoogleAuthProvider());
   }
@@ -145,7 +172,7 @@ export class UserAuthService {
   public signOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.userData.next(null);
+      this.user.next(null);
       this.router.navigate(['sign-in'])
     })
   }
