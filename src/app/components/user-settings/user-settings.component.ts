@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
-import {UserInterface} from "../../interfaces/user.interface";
+import {IUser} from "../../interfaces/user.interface";
+import firebase from "firebase";
+import User = firebase.User;
 
 @Component({
   selector: 'nr-user-settings',
@@ -8,11 +10,11 @@ import {UserInterface} from "../../interfaces/user.interface";
   styleUrls: ['./user-settings.component.scss']
 })
 export class UserSettingsComponent implements OnInit {
-  userData: UserInterface | null = null;
+  userData: IUser | User | null = null;
 
   constructor(private userAuthService: UserAuthService) {
-    userAuthService.$user.subscribe(value => {
-      this.userData = value
+    userAuthService.userData.subscribe(userData => {
+      this.userData = userData;
     })
   }
 
@@ -20,11 +22,11 @@ export class UserSettingsComponent implements OnInit {
   }
 
   login() {
-    this.userAuthService.login()
+    this.userAuthService.googleAuth()
   }
 
   logout() {
-    this.userAuthService.logout()
+    this.userAuthService.signOut()
   }
 
 }

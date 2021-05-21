@@ -11,18 +11,19 @@ export class SideBarComponent implements OnInit {
   $panelOpenState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
   // todo fix that mock prop
-  userAuthorized: boolean = true;
+  userAuthorized: boolean = false;
 
   constructor(private userAuthService: UserAuthService) {
-    userAuthService.$user.subscribe(value => this.userAuthorized = !!value)
-
+    this.userAuthService.userData.subscribe(userData => {
+      this.userAuthorized = !!userData
+    })
   }
 
   ngOnInit(): void {
   }
 
   logout() {
-    this.userAuthService.logout()
+    this.userAuthService.signOut()
   }
 
   setPanelState(state: boolean) {

@@ -8,12 +8,10 @@
   <div class="user-settings">
     <div class="user-settings-header" [matMenuTriggerFor]="beforeMenu">
       <div class="avatar">
-        <!--  todo add real data from firebase service instead of mock value-->
-        <div class="mock-avatar">JD</div>
+        <img [src]="userData?.photoURL" alt="avatar">
       </div>
       <div class="name">
-        <!--  todo add real data from firebase service instead of mock value-->
-        John Doe
+        {{userData?.displayName}}
       </div>
       <span class="icon-chevron"></span>
     </div>

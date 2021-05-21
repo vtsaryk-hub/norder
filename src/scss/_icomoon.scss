@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../assets/fonts/icomoon.eot?j1cul');
-  src:  url('../assets/fonts/icomoon.eot?j1cul#iefix') format('embedded-opentype'),
+  src: url('../assets/fonts/icomoon.eot?j1cul');
+  src: url('../assets/fonts/icomoon.eot?j1cul#iefix') format('embedded-opentype'),
   url('../assets/fonts/icomoon.ttf?j1cul') format('truetype'),
   url('../assets/fonts/icomoon.woff?j1cul') format('woff'),
   url('../assets/fonts/icomoon.svg?j1cul#icomoon') format('svg');
@@ -25,28 +25,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-chevron:before {
+  content: "\e905";
+  color: #fff;
+}
+
 .icon-doc:before {
   content: "\e900";
   color: #fff;
 }
+
 .icon-logout:before {
-  content: "\e901";
+  content: "\1f33f";
   color: #fff;
 }
+
 .icon-person:before {
   content: "\e902";
   color: #fff;
 }
+
 .icon-search:before {
   content: "\e903";
   color: #fff;
 }
+
 .icon-wallet:before {
   content: "\e904";
   color: #fff;
 }
 
-.icon-chevron:before {
-  content: "\e905";
-  color: #fff;
+.icon-eye:before {
+  content: "\e9ce";
+}
+
+.icon-eye-blocked:before {
+  content: "\e9d1";
 }

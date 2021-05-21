@@ -1,0 +1,42 @@
+<div class="sign-up">
+  <h1 class="sign-up-header">Create NORDEX account</h1>
+  <p class="sign-up-description">Join us today!</p>
+  <div class="sign-up-with-social">
+    <div class="sign-up-social-btn google" (click)="signUpWithGoogle()">
+      <img src="./assets/img/icons/google.svg" alt="">
+      <span>with Google</span>
+    </div>
+    <div class="sign-up-social-btn facebook" (click)="signUpWithFacebook()">
+      <img src="https://www.facebook.com/rsrc.php/v3/yN/r/szGrb_tkxMW.png" alt="">
+      <span>with Facebook</span>
+    </div>
+  </div>
+  <div class="sign-up-divider-or"></div>
+  <form [formGroup]="newUserForm" class="sign-up-form">
+    <label class="sign-up-label">
+      Full Name
+      <input class="sign-up-input" type="text" formControlName="displayName" placeholder="John Doe">
+    </label>
+    <label class="sign-up-label">
+      Email
+      <input class="sign-up-input" type="text" formControlName="email" placeholder="example@example.com">
+    </label>
+    <ng-container formGroupName="passwordGroup">
+      <label class="sign-up-label">
+        Password
+        <input class="sign-up-input" type="password" formControlName="password" placeholder="password">
+        <!--      todo add eye icon and function to control it-->
+      </label>
+      <label class="sign-up-label">
+        Confirm password
+        <input class="sign-up-input" type="password" formControlName="confirmPassword" placeholder="confirm password">
+      </label>
+    </ng-container>
+    <p class="sign-up-rules">
+      By signing up, you agree to our <a routerlink="terms" class="sign-up-rules-link">Terms and Conditions</a>
+      & <a routerlink="privacy policy" class="sign-up-rules-link">Privacy Policy</a>
+    </p>
+    <button (click)="signUp()" class="sign-up-submit-btn">sign up</button>
+  </form>
+</div>
+

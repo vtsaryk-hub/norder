@@ -4,4 +4,5 @@ $norder-purple-color: rgb(120, 104, 230);
 $norder-green-color: rgb(76, 202, 156);
 $norder-footer-color: rgb(242, 242, 245);
 $norder-gray-color: rgb(128, 130, 146);
-$norder-input-color: rgb(242, 242, 242);
+// todo: it seems that it will cause accessibility problems!
+$norder-input-color:rgb(198, 198, 198);

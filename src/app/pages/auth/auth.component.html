@@ -1,0 +1,14 @@
+<div class="auth-page">
+  <div class="auth-page-content">
+    <mat-tab-group mat-align-tabs="center" dynamicHeight [(selectedIndex)]="globalTabIndex">
+      <mat-tab>
+        <mat-tab-group mat-align-tabs="center" dynamicHeight class="tabs-with-header" [(selectedIndex)]="tabIndex">
+          <mat-tab label="Sign In"><nr-sign-in></nr-sign-in></mat-tab>
+          <mat-tab label="Sign Up"><nr-sign-up></nr-sign-up></mat-tab>
+        </mat-tab-group>
+      </mat-tab>
+      <mat-tab><nr-forgot-password></nr-forgot-password></mat-tab>
+      <mat-tab><nr-verify-email></nr-verify-email></mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

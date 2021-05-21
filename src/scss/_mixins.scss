@@ -1,5 +1,49 @@
 @import "variables";
-.page{
+
+.page {
   background-color: $norder-second-color;
   padding: 50px 60px;
+}
+.nr-sub-text{
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: $norder-input-color;
+}
+.nr-btn-info{
+  background-color: $norder-purple-color;
+  color: white;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+.nr-header-mid {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: $norder-main-color;
+}
+
+.nr-label {
+  display: block;
+  margin-bottom: 15px;
+  color: $norder-main-color;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.nr-input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 10px 15px;
+  border: 1px solid $norder-input-color;
+  border-radius: 5px;
+  transition: .3s;
+
+  &, &:focus {
+    outline: none;
+  }
+
+  &:focus {
+    border-color: $norder-gray-color;
+  }
 }
