@@ -9,8 +9,7 @@ import {compare} from "../../utils/utils";
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  // todo add an interface for transactionData
-  @Input() transactionData: any;
+  @Input() transactionData: any; // ITransaction
   sortedData: ITransactionImpactedAccounts[];
 
   constructor() {

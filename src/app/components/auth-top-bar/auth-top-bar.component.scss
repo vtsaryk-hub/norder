@@ -37,7 +37,7 @@
   &-divider-or {
     position: relative;
     height: 1px;
-    background-color: $norder-input-color;
+    background-color: $nr-color-input;
     margin: 40px 0;
 
     &:before {
@@ -45,7 +45,7 @@
       display: inline-block;
       content: "or";
       background: #fff;
-      color: $norder-main-color;
+      color: $nr-color-main;
       position: absolute;
       left: 50%;
       top: 50%;

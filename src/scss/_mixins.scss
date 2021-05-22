@@ -1,7 +1,7 @@
 @import "variables";
 
 .page {
-  background-color: $norder-second-color;
+  background-color: $nr-color-second;
   padding: 50px 60px;
 }
 
@@ -43,23 +43,23 @@
     line-height: 1.3rem;
   }
   &-link {
-    color: $norder-main-color;
+    color: $nr-color-main;
     cursor: pointer;
   }
   &-alternate {
     text-align: center;
-    color: $norder-input-color;
+    color: $nr-color-input;
   }
 }
 
 .nr-sub-text {
   font-size: 0.8rem;
   font-weight: 200;
-  color: $norder-input-color;
+  color: $nr-color-input;
 }
 
 .nr-btn-info {
-  background-color: $norder-purple-color;
+  background-color: $nr-color-info;
   color: white;
   border-radius: 3px;
   padding: 10px 20px;
@@ -69,13 +69,13 @@
 .nr-header-mid {
   font-weight: 600;
   font-size: 1.5rem;
-  color: $norder-main-color;
+  color: $nr-color-main;
 }
 
 .nr-label {
   display: block;
   margin-bottom: 15px;
-  color: $norder-main-color;
+  color: $nr-color-main;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -85,7 +85,7 @@
   width: 100%;
   margin: 0.5rem 0;
   padding: 10px 15px;
-  border: 1px solid $norder-input-color;
+  border: 1px solid $nr-color-input;
   border-radius: 5px;
   transition: .3s;
 
@@ -94,6 +94,6 @@
   }
 
   &:focus {
-    border-color: $norder-gray-color;
+    border-color: $nr-color-gray;
   }
 }

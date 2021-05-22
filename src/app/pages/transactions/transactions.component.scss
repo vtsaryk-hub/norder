@@ -51,7 +51,7 @@
     align-items: center;
     padding: 10px 16px 10px 5rem;
     user-select: none;
-    background-color: $norder-second-color;
+    background-color: $nr-color-second;
     margin-bottom: 10px;
 
     & > *:nth-child(1) {
@@ -120,7 +120,7 @@
     }
 
     .current {
-      background-color: $norder-purple-color;
+      background-color: $nr-color-info;
       color: #ffffff;
     }
   }

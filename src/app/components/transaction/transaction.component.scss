@@ -12,7 +12,7 @@
 
     &:not(.mat-expanded) {
       box-shadow: none !important;
-      border: 1px solid $norder-second-color;
+      border: 1px solid $nr-color-second;
     }
 
     &-header {
@@ -20,7 +20,7 @@
       padding: 0 0 0 5rem !important;
 
       &:not(.mat-expanded):hover {
-        background-color: $norder-second-color !important;
+        background-color: $nr-color-second !important;
       }
 
       &-title {
@@ -33,7 +33,7 @@
 
     ::ng-deep &-body {
       padding: 0 3rem !important;
-      background-color: $norder-second-color;
+      background-color: $nr-color-second;
     }
 
   }
@@ -42,7 +42,7 @@
     user-select: none;
     opacity: 1;
     transition: .3s;
-    background: $norder-purple-color;
+    background: $nr-color-info;
     position: absolute;
     left: 1.5rem;
     top: 50%;
@@ -53,14 +53,14 @@
     height: 25px;
 
     &.collapsed {
-      background-color: $norder-input-color;
+      background-color: $nr-color-input;
 
       .icon-chevron {
         transform: rotate(-90deg);
         opacity: 0.4;
 
         &:before {
-          color: $norder-gray-color;
+          color: $nr-color-gray;
         }
       }
     }
