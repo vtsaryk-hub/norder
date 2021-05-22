@@ -5,15 +5,27 @@
   padding: 50px 60px;
 }
 
-@mixin auth{
+@mixin auth {
   margin: 15px;
 
   &-label {
     @extend .nr-label
   }
 
+  &-pass-wrapper {
+    position: relative;
+  }
+
   &-input {
     @extend .nr-input
+  }
+  &-input-toggle {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-100%, -50%);
+    z-index: 2;
   }
 
   &-submit-btn {
@@ -34,23 +46,26 @@
     color: $norder-main-color;
     cursor: pointer;
   }
-  &-alternate{
+  &-alternate {
     text-align: center;
     color: $norder-input-color;
   }
 }
-.nr-sub-text{
+
+.nr-sub-text {
   font-size: 0.8rem;
   font-weight: 200;
   color: $norder-input-color;
 }
-.nr-btn-info{
+
+.nr-btn-info {
   background-color: $norder-purple-color;
   color: white;
   border-radius: 3px;
   padding: 10px 20px;
   font-size: 1rem;
 }
+
 .nr-header-mid {
   font-weight: 600;
   font-size: 1.5rem;

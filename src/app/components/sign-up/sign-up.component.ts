@@ -24,6 +24,8 @@ export class SignUpComponent extends AbstractAuthorizationComponent {
       confirmPassword: ['', [Validators.required, Validators.minLength(8)]]
     }, {validators: [this.isPasswordEquals], updateOn: "blur"} as AbstractControlOptions)
   })
+  showPass: boolean = false;
+  showPassConf: boolean = false;
 
   constructor(private fb: FormBuilder, userAuthService: UserAuthService, router: Router) {
     super(userAuthService)

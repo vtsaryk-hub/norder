@@ -11,12 +11,17 @@
     <ng-container formGroupName="passwordGroup">
       <label class="sign-up-label">
         Password
-        <input class="sign-up-input" type="password" formControlName="password" placeholder="password">
-        <!--      todo add eye icon and function to control it-->
+        <div class="sign-up-pass-wrapper">
+          <input class="sign-up-input" [attr.type]="showPass ? 'text': 'password'" formControlName="password" placeholder="password">
+          <span class="{{showPass ? 'icon-eye-blocked': 'icon-eye'}} sign-up-input-toggle" (click)="showPass = !showPass;"></span>
+        </div>
       </label>
       <label class="sign-up-label">
         Confirm password
-        <input class="sign-up-input" type="password" formControlName="confirmPassword" placeholder="confirm password">
+        <div class="sign-up-pass-wrapper">
+          <input class="sign-up-input" [attr.type]="showPassConf ? 'text': 'password'" formControlName="confirmPassword" placeholder="confirm password">
+          <span class="{{showPassConf ? 'icon-eye-blocked': 'icon-eye'}} sign-up-input-toggle" (click)="showPassConf = !showPassConf;"></span>
+        </div>
       </label>
     </ng-container>
     <p class="sign-up-rules">

@@ -13,6 +13,7 @@ export class SignInComponent extends AbstractAuthorizationComponent {
     email: ['', {validators: [Validators.required]}],
     password: ['', {validators: [Validators.required, Validators.minLength(8)], updateOn: "blur"}],
   })
+  showPass: boolean = false;
 
   constructor(private fb: FormBuilder, userAuthService: UserAuthService) {
     super(userAuthService);
@@ -20,8 +21,12 @@ export class SignInComponent extends AbstractAuthorizationComponent {
 
   submit(form: FormGroup) {
     // todo add validation messages
-    if(form.valid){
+    if (form.valid) {
       super.submit(form, 'in');
     }
+  }
+
+  togglePass() {
+    this.showPass = !this.showPass;
   }
 }
