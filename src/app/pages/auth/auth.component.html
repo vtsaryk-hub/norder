@@ -1,0 +1,26 @@
+<div class="auth-page">
+  <div class="auth-page-content">
+    <mat-tab-group mat-align-tabs="center" dynamicHeight [(selectedIndex)]="globalTabIndex">
+      <mat-tab>
+        <nr-auth-top-bar></nr-auth-top-bar>
+        <mat-tab-group mat-align-tabs="center" dynamicHeight [(selectedIndex)]="tabIndex">
+          <mat-tab label="Sign In">
+            <nr-sign-in (onNavigate)="navigation($event)"></nr-sign-in>
+          </mat-tab>
+          <mat-tab label="Sign Up">
+            <nr-sign-up (onNavigate)="navigation($event)"></nr-sign-up>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-tab>
+      <mat-tab>
+        <nr-forgot-password (onNavigate)="navigation($event)"></nr-forgot-password>
+      </mat-tab>
+      <mat-tab>
+        <nr-verify-email (onNavigate)="navigation($event)"></nr-verify-email>
+      </mat-tab>
+      <mat-tab>
+        <nr-change-password (onNavigate)="navigation($event)"></nr-change-password>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

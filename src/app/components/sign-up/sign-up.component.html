@@ -1,0 +1,38 @@
+<div class="sign-up">
+  <form [formGroup]="newUserForm" class="sign-up-form" (submit)="submit(newUserForm)">
+    <label class="sign-up-label">
+      Full Name
+      <input class="sign-up-input" type="text" formControlName="displayName" placeholder="John Doe">
+    </label>
+    <label class="sign-up-label">
+      Email
+      <input class="sign-up-input" type="text" formControlName="email" placeholder="example@example.com">
+    </label>
+    <ng-container formGroupName="passwordGroup">
+      <label class="sign-up-label">
+        Password
+        <div class="sign-up-pass-wrapper">
+          <input class="sign-up-input" [attr.type]="showPass ? 'text': 'password'" formControlName="password" placeholder="password">
+          <span class="{{showPass ? 'icon-eye-blocked': 'icon-eye'}} sign-up-input-toggle" (click)="showPass = !showPass;"></span>
+        </div>
+      </label>
+      <label class="sign-up-label">
+        Confirm password
+        <div class="sign-up-pass-wrapper">
+          <input class="sign-up-input" [attr.type]="showPassConf ? 'text': 'password'" formControlName="confirmPassword" placeholder="confirm password">
+          <span class="{{showPassConf ? 'icon-eye-blocked': 'icon-eye'}} sign-up-input-toggle" (click)="showPassConf = !showPassConf;"></span>
+        </div>
+      </label>
+    </ng-container>
+    <p class="sign-up-rules">
+      By signing up, you agree to our <a [routerLink]="['/terms-and-conditions']" class="sign-up-link">Terms and
+      Conditions</a>
+      & <a [routerLink]="['/privacy-policy']" class="sign-up-link">Privacy Policy</a>
+    </p>
+    <button type="submit" class="sign-up-submit-btn">sign up</button>
+  </form>
+  <p class="sign-up-alternate">
+    Already have account? <a class="sign-up-link" (click)="onNavigate.emit('sign-in')">Login</a>
+  </p>
+</div>
+

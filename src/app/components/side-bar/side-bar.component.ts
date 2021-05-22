@@ -1,28 +1,32 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnDestroy, OnInit, Output} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject, Subject, Subscription} from "rxjs";
 
 @Component({
   selector: 'nr-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent implements OnDestroy {
   $panelOpenState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-
-  // todo fix that mock prop
-  userAuthorized: boolean = true;
+  userAuthorized: boolean = false;
+  private _userSubscription: Subscription;
 
   constructor(private userAuthService: UserAuthService) {
-    userAuthService.$user.subscribe(value => this.userAuthorized = !!value)
-
+    this._userSubscription = this.userAuthService.user.subscribe(userData => {
+      this.userAuthorized = !!userData;
+      if (!this.userAuthorized) {
+        ///////////////////
+      }
+    })
   }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this._userSubscription.unsubscribe();
   }
 
   logout() {
-    this.userAuthService.logout()
+    this.userAuthService.signOut()
   }
 
   setPanelState(state: boolean) {

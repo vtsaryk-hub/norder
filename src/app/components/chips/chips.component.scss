@@ -11,14 +11,13 @@
   }
 
   &.success {
-    // todo: add colors to variables
     background-color: rgb(235, 249, 244);
-    color: rgb(84, 204, 160)
+    color: $nr-color-success;
   }
 
   &.info {
     background-color: rgb(241, 240, 252);
-    color: $norder-purple-color
+    color: $nr-color-info;
   }
 
   &.warning {

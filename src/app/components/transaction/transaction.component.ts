@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ITransactionImpactedAccounts} from "../../interfaces/transaction-impacted-accounts.interface";
 import {Sort} from "@angular/material/sort";
-import {ITransaction} from "../../interfaces/transaction.interface";
 import {compare} from "../../utils/utils";
 
 @Component({
@@ -10,8 +9,7 @@ import {compare} from "../../utils/utils";
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  // todo add an interface for transactionData
-  @Input() transactionData: any;
+  @Input() transactionData: any; // ITransaction
   sortedData: ITransactionImpactedAccounts[];
 
   constructor() {

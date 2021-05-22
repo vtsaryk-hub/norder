@@ -3,26 +3,26 @@
 .search {
   display: flex;
   align-items: center;
-  border: 1px solid $norder-gray-color;
+  border: 1px solid $nr-color-gray;
   border-radius: 3px;
-  color: $norder-gray-color;
+  color: $nr-color-gray;
 
   & > .icon-search {
     user-select: none;
     padding: 6px;
 
     &:before {
-      color: $norder-gray-color;
+      color: $nr-color-gray;
       font-size: 1.5rem;
     }
   }
 
   &-input {
-    color: $norder-gray-color;
+    color: $nr-color-gray;
     font-size: 1rem;
 
     &::placeholder {
-      color: lighten($norder-gray-color, 10%);
+      color: lighten($nr-color-gray, 10%);
       font-size: 1rem;
     }
 

@@ -1,0 +1,9 @@
+@import "shared";
+
+.sign-up {
+  @include auth;
+}
+
+::placeholder {
+  color: $nr-color-input;
+}

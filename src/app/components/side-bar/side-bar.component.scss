@@ -4,7 +4,7 @@ $white-color-30: rgba(white, .3);
 $white-color: rgba(white, 1);
 .side-bar {
   height: 100%;
-  background-color: $norder-main-color;
+  background-color: $nr-color-main;
 
   &-wrapper {
     display: flex;
@@ -36,7 +36,7 @@ $white-color: rgba(white, 1);
       }
 
       &.active {
-        border-left-color: $norder-purple-color;
+        border-left-color: $nr-color-info;
       }
 
       &-link {

@@ -1,0 +1,8 @@
+@import "shared";
+
+.sign-in{
+  @include auth;
+  &-forgot-pass{
+    text-align: right;
+  }
+}
