@@ -23,6 +23,7 @@ import {EmailVerifiedGuard} from "./guards/email-verified.guard";
 import {AuthBaseComponent} from './components/auth-base/auth-base.component';
 import {NotAuthGuard} from "./guards/not-auth.guard";
 import {NotEmailVerifiedGuard} from "./guards/not-email-verified.guard";
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {NotEmailVerifiedGuard} from "./guards/not-email-verified.guard";
     AbstractAuthorizationComponent,
     AuthTopBarComponent,
     AuthBaseComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import {AuthComponent} from "./pages/auth/auth.component";
 import {EmailVerifiedGuard} from "./guards/email-verified.guard";
 import {NotAuthGuard} from "./guards/not-auth.guard";
 import {NotEmailVerifiedGuard} from "./guards/not-email-verified.guard";
+import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
 
 const routes: Routes = [{
   path: 'transactions',
@@ -63,7 +64,13 @@ const routes: Routes = [{
     canActivate: [AuthGuard, NotEmailVerifiedGuard]
   },
   {
+    path: '404', component: PageNotFoundComponent
+  },
+  {
     path: '', redirectTo: '/transactions', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: '/404'
   }
 ];
 
