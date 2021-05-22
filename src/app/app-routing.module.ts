@@ -52,7 +52,7 @@ const routes: Routes = [{
   },
   {
     path: 'forgot-password', component: AuthComponent,
-    canActivate: [EmailVerifiedGuard]
+    canActivate: [NotAuthGuard]
   },
   {
     path: 'change-password', component: AuthComponent,

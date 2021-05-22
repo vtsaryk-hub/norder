@@ -1,18 +1,19 @@
-import {Component, NgZone, OnInit, Output} from '@angular/core';
+import {Component, NgZone, OnDestroy, OnInit, Output} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject, Subject, Subscription} from "rxjs";
 
 @Component({
   selector: 'nr-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent implements OnDestroy {
   $panelOpenState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   userAuthorized: boolean = false;
+  private _userSubscription: Subscription;
 
-  constructor(private userAuthService: UserAuthService, private ngZone: NgZone) {
-    this.userAuthService.user.subscribe(userData => {
+  constructor(private userAuthService: UserAuthService) {
+    this._userSubscription = this.userAuthService.user.subscribe(userData => {
       this.userAuthorized = !!userData;
       if (!this.userAuthorized) {
         ///////////////////
@@ -20,7 +21,8 @@ export class SideBarComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this._userSubscription.unsubscribe();
   }
 
   logout() {

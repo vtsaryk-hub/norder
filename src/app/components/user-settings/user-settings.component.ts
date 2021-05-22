@@ -1,24 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
 import {IUser} from "../../interfaces/user.interface";
 import firebase from "firebase";
 import User = firebase.User;
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'nr-user-settings',
   templateUrl: './user-settings.component.html',
   styleUrls: ['./user-settings.component.scss']
 })
-export class UserSettingsComponent implements OnInit {
+export class UserSettingsComponent implements OnDestroy {
   userData: User | null = null;
+  private _userSubscription: Subscription;
 
   constructor(private userAuthService: UserAuthService) {
-    userAuthService.user.subscribe(userData => {
+    this._userSubscription = userAuthService.user.subscribe(userData => {
       this.userData = userData;
     })
-  }
-
-  ngOnInit(): void {
   }
 
   login() {
@@ -27,6 +26,10 @@ export class UserSettingsComponent implements OnInit {
 
   logout() {
     this.userAuthService.signOut()
+  }
+
+  ngOnDestroy(): void {
+    this._userSubscription.unsubscribe();
   }
 
 }

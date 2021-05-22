@@ -39,12 +39,12 @@ export class UserAuthService {
 
   get isEmailVerified(): boolean {
     const user = JSON.parse(<string>localStorage.getItem('user'));
-    return user.emailVerified;
+    return user?.emailVerified;
   }
 
   get isLoggedInAndEmailVerified(): boolean {
     const user = JSON.parse(<string>localStorage.getItem('user'));
-    return user !== null && user.emailVerified;
+    return user !== null && user?.emailVerified;
   }
 
   private setUserData(user: any, displayName: string = '') {

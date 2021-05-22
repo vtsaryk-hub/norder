@@ -1,19 +1,22 @@
-import {Component, NgZone, OnInit} from '@angular/core';
+import {Component, NgZone, OnDestroy, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {Router} from "@angular/router";
 import {UserAuthService} from "../../services/user-auth.service";
+import {SubscriptionLike} from "rxjs";
 
 @Component({
   selector: 'nr-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
   globalTabIndex: number = 0;
   tabIndex: number = 0;
+  private _locationSubscription: SubscriptionLike;
+
 
   constructor(private ngZone: NgZone, private router: Router, private location: Location, userAuthService: UserAuthService) {
-    location.subscribe((val: any) => {
+    this._locationSubscription = location.subscribe((val: any) => {
       this.urlParse(val.url)
     })
   }
@@ -49,6 +52,10 @@ export class AuthComponent implements OnInit {
         this.tabIndex = 0;
         break;
     }
+  }
+
+  ngOnDestroy(): void {
+    this._locationSubscription.unsubscribe();
   }
 
 }
