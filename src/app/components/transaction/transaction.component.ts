@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ITransactionDetails} from "../../interfaces/transaction-details.interface";
+import {ITransactionImpactedAccounts} from "../../interfaces/transaction-impacted-accounts.interface";
 import {Sort} from "@angular/material/sort";
-import {ITransaction} from "../../interfaces/transaction.interface";
 import {compare} from "../../utils/utils";
 
 @Component({
@@ -10,26 +9,25 @@ import {compare} from "../../utils/utils";
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  // todo add an interface for transactionData
-  @Input() transactionData: any;
-  sortedData: ITransactionDetails[];
+  @Input() transactionData: any; // ITransaction
+  sortedData: ITransactionImpactedAccounts[];
 
   constructor() {
     this.sortedData = []
   }
 
   ngOnInit(): void {
-    this.sortedData = this.transactionData?.details?.slice()
+    this.sortedData = this.transactionData?.impactedAccounts?.slice()
   }
 
   sortData(sort: Sort) {
-    const data = this.transactionData?.details?.slice();
+    const data = this.transactionData?.impactedAccounts?.slice();
     if (!sort.active || sort.direction === '') {
       this.sortedData = data;
       return;
     }
 
-    this.sortedData = data.sort((a: ITransactionDetails, b: ITransactionDetails) => {
+    this.sortedData = data.sort((a: ITransactionImpactedAccounts, b: ITransactionImpactedAccounts) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'date':

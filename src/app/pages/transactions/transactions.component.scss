@@ -1,32 +1,32 @@
 @import "shared";
 
-.chevron {
-  content: "\e905";
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  transform: rotate(90deg);
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.pagination-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-}
-
 .transactions {
+  .chevron {
+    content: "\e905";
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    transform: rotate(90deg);
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .pagination-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+  }
+
   &-table {
     background-color: #fff;
     border-radius: 3px;
@@ -41,11 +41,7 @@
   }
 
   &-add-btn {
-    background-color: $norder-purple-color;
-    color: white;
-    border-radius: 3px;
-    padding: 10px 20px;
-    font-size: 1rem;
+    @extend .nr-btn-info
   }
 
   &-table-sort-header {
@@ -55,7 +51,7 @@
     align-items: center;
     padding: 10px 16px 10px 5rem;
     user-select: none;
-    background-color: $norder-second-color;
+    background-color: $nr-color-second;
     margin-bottom: 10px;
 
     & > *:nth-child(1) {
@@ -124,7 +120,7 @@
     }
 
     .current {
-      background-color: $norder-purple-color;
+      background-color: $nr-color-info;
       color: #ffffff;
     }
   }
