@@ -23,7 +23,8 @@ import {EmailVerifiedGuard} from "./guards/email-verified.guard";
 import {AuthBaseComponent} from './components/auth-base/auth-base.component';
 import {NotAuthGuard} from "./guards/not-auth.guard";
 import {NotEmailVerifiedGuard} from "./guards/not-email-verified.guard";
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
+import {ValidationInputComponent} from './components/validataion-input/validation-input.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     AuthTopBarComponent,
     AuthBaseComponent,
     PageNotFoundComponent,
+    ValidationInputComponent,
   ],
   imports: [
     BrowserModule,

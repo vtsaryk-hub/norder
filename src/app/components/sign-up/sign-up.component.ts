@@ -1,14 +1,18 @@
 import {Component} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
 import {
-  AbstractControl,
-  AbstractControlOptions,
+  AbstractControl, AbstractControlOptions,
   FormBuilder, FormGroup,
   ValidationErrors,
   Validators
 } from "@angular/forms";
 import {Router} from "@angular/router";
 import {AbstractAuthorizationComponent} from "../abstract-authorization/abstract-authorization.component";
+import {getValidationMessages} from "../../constants/validation-messages";
+import {isEquals} from "../../utils/utils";
+import {displayNameRegExp, emailRegExp, passwordRegExp} from "../../utils/regexp";
+
+
 
 @Component({
   selector: 'nr-sign-up',
@@ -17,15 +21,33 @@ import {AbstractAuthorizationComponent} from "../abstract-authorization/abstract
 })
 export class SignUpComponent extends AbstractAuthorizationComponent {
   newUserForm = this.fb.group({
-    displayName: ['', [Validators.required]],
-    email: ['', [Validators.required]],
+    displayName: ['', [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(25),
+      Validators.pattern(displayNameRegExp)
+    ]],
+    email: ['', [
+      Validators.required,
+      Validators.pattern(emailRegExp)
+    ]],
     passwordGroup: this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(8)]]
-    }, {validators: [this.isPasswordEquals], updateOn: "blur"} as AbstractControlOptions)
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(25),
+        Validators.pattern(passwordRegExp)
+      ]],
+      confirmPassword: ['', [
+        Validators.required
+      ]]
+    }, {validators: [isEquals('password', 'confirmPassword')]} as AbstractControlOptions)
   })
-  showPass: boolean = false;
-  showPassConf: boolean = false;
+
+  displayNameValidationMessages = getValidationMessages('displayName');
+  emailValidationMessages = getValidationMessages('email');
+  passwordValidationMessages = getValidationMessages('password');
+  confirmPasswordValidationMessages = getValidationMessages('confirmPassword');
 
   constructor(private fb: FormBuilder, userAuthService: UserAuthService, router: Router) {
     super(userAuthService)

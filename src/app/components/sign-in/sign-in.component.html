@@ -1,18 +1,20 @@
 <div class="sign-in">
   <form [formGroup]="userForm" class="sign-in-form" (submit)="submit(userForm)">
-    <label class="sign-in-label">
-      Email
-      <input class="sign-in-input" type="text" formControlName="email" placeholder="example@example.com">
-    </label>
-
-    <label class="sign-in-label">
-      Password
-      <div class="sign-in-pass-wrapper">
-        <input class="sign-in-input" [attr.type]="showPass ? 'text': 'password'" formControlName="password"
-               placeholder="password">
-        <span class="{{showPass ? 'icon-eye-blocked': 'icon-eye'}} sign-in-input-toggle" (click)="showPass = !showPass;"></span>
-      </div>
-    </label>
+    <nr-validation-input
+      label="Email"
+      type="text"
+      formControlName="email"
+      placeholder="example@example.com"
+      [errorMessages]="emailValidationMessages"
+    ></nr-validation-input>
+    <nr-validation-input
+      label="Password"
+      type="password"
+      formControlName="password"
+      placeholder="password"
+      [showEye]="true"
+      [errorMessages]="passwordValidationMessages"
+    ></nr-validation-input>
 
     <p class="sign-in-forgot-pass">
       <a role="link" class="sign-in-link" (click)="onNavigate.emit('/forgot-password')">forgot password?</a>
