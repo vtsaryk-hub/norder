@@ -1,0 +1,53 @@
+@import "shared";
+
+.validation-input {
+  @extend .nr-input;
+
+  &-wrapper {
+    position: relative;
+  }
+
+  &-label {
+    @extend .nr-label;
+    text-transform: capitalize;
+
+    &.wrong {
+      .validation-input {
+        border-color: $nr-color-alert;
+      }
+
+    }
+  }
+
+  &-warning {
+    color: $nr-color-alert;
+    margin-right: 8px;
+    font-size: .8rem;
+  }
+
+  &-eye {
+    cursor: pointer;
+    position: absolute;
+    color: $nr-color-main;
+    top: 50%;
+    right: 0;
+    transform: translate(-100%, -50%);
+    z-index: 2;
+  }
+
+  &-error {
+    &-list {
+      color: $nr-color-alert;
+      padding: 0 10px;
+      font-size: 0.75rem;
+    }
+
+    &-message {
+      display: flex;
+      margin: 0;
+      &-point{
+        margin-right: 5px;
+      }
+    }
+  }
+}

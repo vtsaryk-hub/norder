@@ -1,0 +1,23 @@
+<label class="validation-input-label {{isInvalid && 'wrong'}}">
+  <span *ngIf="isInvalid" class="icon-notification validation-input-warning"></span>
+  <span class="validation-input-label-text">{{label}}</span>
+  <div class="validation-input-wrapper">
+    <input class="validation-input"
+           #input
+           (input)="change(input.value)"
+           (blur)="onTouched()"
+           [disabled]="disabled"
+           [value]="value"
+           [attr.type]="showPass || type" [attr.placeholder]="placeholder">
+    <span *ngIf="showEye" class="{{showPass ? 'icon-eye-blocked': 'icon-eye'}} validation-input-eye"
+          (click)="showPass = !showPass;"></span>
+  </div>
+  <div class="validation-input-error-list" *ngIf="isInvalid">
+    <ng-container *ngFor="let error of control?.errors | keyvalue">
+      <div class="validation-input-error-message">
+        <span class="validation-input-error-message-point">&#8226;</span>
+        <span>{{errorMessages[error.key]}}</span>
+      </div>
+    </ng-container>
+  </div>
+</label>

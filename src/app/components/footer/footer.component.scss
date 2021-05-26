@@ -1,0 +1,20 @@
+@import "shared";
+.footer{
+  background-color: $nr-color-footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  & .terms-and-policies{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    .divider{
+      height: 1rem;
+      width: 3px;
+      background-color: grey;
+      margin: 0 15px;
+    }
+  }
+
+}

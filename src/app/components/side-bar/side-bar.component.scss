@@ -1,0 +1,140 @@
+@import "shared";
+
+$white-color-30: rgba(white, .3);
+$white-color: rgba(white, 1);
+.side-bar {
+  height: 100%;
+  background-color: $nr-color-main;
+
+  &-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100vh;
+    font-weight: 400;
+  }
+
+  .menu {
+    color: $white-color-30;
+
+    &-logo {
+      margin: 40px 70px;
+    }
+
+    &-header {
+      padding: 10px 30px;
+      text-transform: uppercase;
+    }
+
+    &-item {
+      margin-bottom: 15px;
+      padding: 10px 10px 10px 23px;
+      border-left: 4px solid transparent;
+
+      &:hover, &.active, &.opened {
+        color: $white-color;
+      }
+
+      &.active {
+        border-left-color: $nr-color-info;
+      }
+
+      &-link {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        &, &:active, &:hover, &:focus, &:visited {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  .sub-menu {
+    color: $white-color-30;
+
+    &-item {
+      margin-bottom: 15px;
+      padding: 5px 10px 5px 23px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover, &.active {
+        color: $white-color;
+      }
+    }
+  }
+
+  span[class^="icon"] {
+    margin-right: 15px;
+    font-size: 2rem;
+
+    &, &:after, &:before {
+      color: inherit;
+    }
+  }
+
+  .side-logout-btn {
+    display: flex;
+    color: $white-color-30;
+    cursor: pointer;
+    padding: 10px 30px;
+
+    &:hover {
+      color: $white-color;
+    }
+  }
+
+
+  // Normalize angular material
+  .mat-expansion-panel {
+    color: inherit !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+
+    &:not([class*='mat-elevation-z']) {
+      box-shadow: none;
+    }
+
+    &-header {
+      padding: 0 15px 0 0;
+      height: auto;
+
+      &-title {
+        display: flex;
+        align-items: center;
+      }
+
+      &, &-title {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+      }
+
+      &:hover {
+        background-color: transparent !important;
+      }
+
+      ::ng-deep .mat-expansion-indicator::after {
+        color: inherit !important;
+      }
+    }
+
+    ::ng-deep .mat-expansion-panel {
+      &-content {
+        font: inherit !important;
+      }
+
+      &-body {
+        padding: 25px 0 0 25px !important;
+      }
+    }
+  }
+}
+
+

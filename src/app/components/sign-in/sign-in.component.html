@@ -1,0 +1,27 @@
+<div class="sign-in">
+  <form [formGroup]="userForm" class="sign-in-form" (submit)="submit(userForm)">
+    <nr-validation-input
+      label="Email"
+      type="text"
+      formControlName="email"
+      placeholder="example@example.com"
+      [errorMessages]="emailValidationMessages"
+    ></nr-validation-input>
+    <nr-validation-input
+      label="Password"
+      type="password"
+      formControlName="password"
+      placeholder="password"
+      [showEye]="true"
+      [errorMessages]="passwordValidationMessages"
+    ></nr-validation-input>
+
+    <p class="sign-in-forgot-pass">
+      <a role="link" class="sign-in-link" (click)="onNavigate.emit('/forgot-password')">forgot password?</a>
+    </p>
+    <button type="submit" class="sign-in-submit-btn">sign in</button>
+  </form>
+  <p class="sign-in-alternate">
+    New user? <a role="link" class="sign-in-link" (click)="onNavigate.emit('/sign-up')">Create an account</a>
+  </p>
+</div>
