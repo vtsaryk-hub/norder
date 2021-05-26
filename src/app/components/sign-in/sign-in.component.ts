@@ -3,7 +3,7 @@ import {AbstractAuthorizationComponent} from "../abstract-authorization/abstract
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserAuthService} from "../../services/user-auth.service";
 import {getValidationMessages} from "../../constants/validation-messages";
-import {displayNameRegExp, emailRegExp, passwordRegExp} from "../../utils/regexp";
+import {emailRegExp, passwordRegExp} from "../../utils/regexp";
 
 @Component({
   selector: 'nr-sign-in',
@@ -25,7 +25,6 @@ export class SignInComponent extends AbstractAuthorizationComponent {
       Validators.pattern(passwordRegExp)
     ]],
   })
-  showPass: boolean = false;
 
   constructor(private fb: FormBuilder, userAuthService: UserAuthService) {
     super(userAuthService);
@@ -36,9 +35,5 @@ export class SignInComponent extends AbstractAuthorizationComponent {
     if (form.valid) {
       super.submit(form, 'in');
     }
-  }
-
-  togglePass() {
-    this.showPass = !this.showPass;
   }
 }
