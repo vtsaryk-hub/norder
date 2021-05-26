@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
 import {
-  AbstractControl, AbstractControlOptions,
+  AbstractControlOptions,
   FormBuilder, FormGroup,
-  ValidationErrors,
   Validators
 } from "@angular/forms";
 import {Router} from "@angular/router";
@@ -51,12 +50,6 @@ export class SignUpComponent extends AbstractAuthorizationComponent {
 
   constructor(private fb: FormBuilder, userAuthService: UserAuthService, router: Router) {
     super(userAuthService)
-  }
-
-  private isPasswordEquals(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password')?.value;
-    const confirmPassword = control.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : {notEquals: true}
   }
 
   submit(form: FormGroup) {
