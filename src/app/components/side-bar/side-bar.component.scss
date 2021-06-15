@@ -11,6 +11,7 @@ $white-color: rgba(white, 1);
     flex-flow: column;
     justify-content: space-between;
     height: 100vh;
+    overflow-y: auto;
     font-weight: 400;
   }
 
@@ -18,7 +19,8 @@ $white-color: rgba(white, 1);
     color: $white-color-30;
 
     &-logo {
-      margin: 40px 70px;
+      display: block;
+      margin: 40px auto;
     }
 
     &-header {

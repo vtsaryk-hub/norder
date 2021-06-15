@@ -2,15 +2,42 @@
   <span *ngIf="isInvalid" class="icon-notification validation-input-warning"></span>
   <span class="validation-input-label-text">{{label}}</span>
   <div class="validation-input-wrapper">
-    <input class="validation-input"
-           #input
-           (input)="change(input.value)"
-           (blur)="onTouched()"
-           [disabled]="disabled"
-           [value]="value"
-           [attr.type]="showPass || type" [attr.placeholder]="placeholder">
-    <span *ngIf="showEye" class="{{showPass ? 'icon-eye-blocked': 'icon-eye'}} validation-input-eye"
-          (click)="showPass = !showPass;"></span>
+    <ng-container *ngIf="type !== 'select' && type !== 'textarea'">
+      <input class="validation-input"
+             #input
+             (input)="change(input.value)"
+             (blur)="onTouched()"
+             [disabled]="disabled"
+             [value]="value"
+             [attr.type]="showPass || type" [attr.placeholder]="placeholder"
+             [attr.step]="step"
+             [attr.min]="min"
+      >
+      <span *ngIf="showEye" class="{{showPass ? 'icon-eye-blocked': 'icon-eye'}} validation-input-eye"
+            (click)="showPass = !showPass;"></span>
+    </ng-container>
+    <ng-container *ngIf="type === 'textarea'">
+      <textarea class="validation-input"
+                #textarea
+                (input)="change(textarea.value)"
+                (blur)="onTouched()"
+                [disabled]="disabled"
+                [attr.placeholder]="placeholder"
+                [value]="value">
+      </textarea>
+    </ng-container>
+    <ng-container *ngIf="type === 'select'">
+      <select class="validation-input"
+                #textarea
+                (input)="change(textarea.value)"
+                (blur)="onTouched()"
+                [disabled]="disabled"
+                [attr.placeholder]="placeholder"
+                [value]="value">
+        <option *ngIf="placeholder" value="" disabled selected>{{placeholder}}</option>
+        <option *ngFor="let option of options" value="{{option.value}}">{{option.text}}</option>
+      </select>
+    </ng-container>
   </div>
   <div class="validation-input-error-list" *ngIf="isInvalid">
     <ng-container *ngFor="let error of control?.errors | keyvalue">

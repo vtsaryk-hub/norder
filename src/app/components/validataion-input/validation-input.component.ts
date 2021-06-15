@@ -8,6 +8,7 @@ import {
 export interface IErrorMessages {
   [key: string]: string;
 }
+
 // todo add dynamic aria-describedby
 @Component({
   selector: 'nr-validation-input',
@@ -41,6 +42,8 @@ export class ValidationInputComponent implements OnInit, ControlValueAccessor {
   }
 
   private _value: string = '';
+  @Input() options: any[] = [];
+
   @Input()
   get value() {
     return this._value;
@@ -52,7 +55,7 @@ export class ValidationInputComponent implements OnInit, ControlValueAccessor {
   }
 
   @Input() label: string = '';
-  @Input() type: 'text' | 'number' | 'email' | 'password' = 'text';
+  @Input() type: 'text' | 'number' | 'email' | 'password' | 'date' | 'textarea' | 'select' = 'text';
   private _showEye: boolean = false;
   @Input()
   get showEye(): boolean {
@@ -75,8 +78,10 @@ export class ValidationInputComponent implements OnInit, ControlValueAccessor {
   }
 
   @Input() disabled: boolean = false;
+  @Input() step: number | undefined;
+  @Input() min: number | undefined;
 
-  get isInvalid(){
+  get isInvalid() {
     return this.control && !this.control.valid && this.control.touched
   }
 

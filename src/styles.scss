@@ -71,3 +71,44 @@ button {
 button, *[role='button'], *[class*="btn"] {
   user-select: none;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $nr-color-dark-gray;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $nr-color-gray;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: $nr-color-gray;
+}
+
+::-webkit-scrollbar-track {
+  background: $nr-color-input;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: $nr-color-input;
+
+}
+
+::-webkit-scrollbar-track:active {
+  background: $nr-color-input;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

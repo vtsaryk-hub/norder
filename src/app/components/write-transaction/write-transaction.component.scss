@@ -1,0 +1,82 @@
+@import "shared";
+@include page-like-modal('.write-transaction');
+
+.write-transaction {
+  border-radius: 5px;
+
+  .top-bar {
+    border-bottom: 1px solid $nr-color-input;
+    padding: 0.5rem 1rem;
+    color: $nr-color-main;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .cross {
+      display: flex;
+      font-size: 1.5rem;
+      color: $nr-color-dark-gray;
+      opacity: 0.6;
+      transition: .3s;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .header {
+      font-weight: 600;
+    }
+  }
+
+  .form {
+    &-row {
+      display: flex;
+      padding: 0 1rem;
+
+      .btn {
+        cursor: pointer;
+        font-size: 0.7rem;
+        height: 30px;
+        width: 72px;
+        color: #fff;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      & > .btn-cancel {
+        background-color: $nr-color-dark-gray;
+      }
+
+      & > .btn-submit {
+        background-color: $nr-color-info;
+        margin-right: .5rem;
+      }
+
+      &:first-child {
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+        padding: calc(20px - 0.5rem) 1rem 20px;
+      }
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.nr-checkbox {
+  width: 130px;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}

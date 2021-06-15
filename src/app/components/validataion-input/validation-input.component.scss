@@ -1,5 +1,17 @@
 @import "shared";
-
+:host-context(.ng-untouched){
+  &:not(.ng-dirty){
+    input[type="date"]{
+      color: $nr-color-input;
+    }
+    select.validation-input{
+      color: $nr-color-input;
+      option{
+        color: $nr-color-main;
+      }
+    }
+  }
+}
 .validation-input {
   @extend .nr-input;
 
@@ -50,4 +62,12 @@
       }
     }
   }
+}
+textarea{
+  resize: none;
+  width: 100%;
+  height: 114px;
+}
+::placeholder{
+  color: $nr-color-input;
 }

@@ -6,7 +6,8 @@
         <div class="transaction-toggle-btn" (click)="panelH._toggle()" [class.collapsed]="!panel.expanded">
           <span class="icon-chevron"></span>
         </div>
-        <span class="transaction-date">{{transactionData.date | date: 'd MMM, y'}}</span>
+        <span
+          class="transaction-date">{{(transactionData.date.toDate && transactionData.date.toDate()) || transactionData.date | date: 'd MMM, y'}}</span>
         <span class="transaction-account">{{transactionData.account}}</span>
         <span class="transaction-other-party">{{transactionData.otherParty}}</span>
         <span class="transaction-type">
@@ -20,11 +21,11 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="onEdit.emit(id)">
               <mat-icon>edit</mat-icon>
               <span>Edit</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="onDelete.emit(id)">
               <mat-icon>delete</mat-icon>
               <span>Remove</span>
             </button>
@@ -34,7 +35,9 @@
 
     </mat-expansion-panel-header>
     <div class="transaction-body">
-      <div class="transaction-body-impacted-accounts">
+      <!--        todo: decide how impacted accounts should work-->
+
+      <!--<div class="transaction-body-impacted-accounts">
         <div class="transaction-body-header" matSort (matSortChange)="sortData($event)">
           <div mat-sort-header="date" class="transaction-body-header-date">Date</div>
           <div mat-sort-header="account" class="transaction-body-header-account">Account</div>
@@ -47,7 +50,7 @@
           <div class="transaction-body-content-debit">{{impactedAccount.debit | currency}}</div>
           <div class="transaction-body-content-credit">{{impactedAccount.credit | currency}}</div>
         </div>
-      </div>
+      </div>-->
       <div class="transaction-body-details">
         {{transactionData.details}}
       </div>

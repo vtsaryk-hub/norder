@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ITransactionImpactedAccounts} from "../../interfaces/transaction-impacted-accounts.interface";
 import {Sort} from "@angular/material/sort";
 import {compare} from "../../utils/utils";
@@ -9,16 +9,26 @@ import {compare} from "../../utils/utils";
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
+  @Input() accounts: any[] = [];
   @Input() transactionData: any; // ITransaction
+  @Output() onDelete = new EventEmitter<string>();
+  @Output() onEdit = new EventEmitter<string>();
   sortedData: ITransactionImpactedAccounts[];
+  id: string = '';
+  private accountName: string = '';
 
   constructor() {
-    this.sortedData = []
+    this.sortedData = [];
   }
 
   ngOnInit(): void {
-    this.sortedData = this.transactionData?.impactedAccounts?.slice()
+    this.sortedData = this.transactionData?.impactedAccounts?.slice();
+    this.id = this.transactionData.id;
+    this.accountName = this.accounts.find((account) => {
+      return this.transactionData.account === account.id;
+    })?.name || '';
   }
+
 
   sortData(sort: Sort) {
     const data = this.transactionData?.impactedAccounts?.slice();

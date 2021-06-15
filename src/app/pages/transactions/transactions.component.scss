@@ -1,5 +1,18 @@
 @import "shared";
-
+:host{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: calc(#{$top-bar-height} - 5px) 30px calc(#{$footer-height} - 5px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-y: overlay;
+}
+:host-context(.overflow-hidden){
+  overflow: hidden;
+}
 .transactions {
   .chevron {
     content: "\e905";
@@ -31,6 +44,11 @@
     background-color: #fff;
     border-radius: 3px;
     padding: 25px;
+    &-wrapper{
+      overflow-x: auto;
+      overflow-x: overlay;
+      margin-bottom: 10px;
+    }
   }
 
   &-top-bar {
@@ -123,5 +141,11 @@
       background-color: $nr-color-info;
       color: #ffffff;
     }
+  }
+  .row-min-width{
+    min-width: 960px;
+  }
+  .loading{
+    text-align: center;
   }
 }

@@ -8,6 +8,7 @@ import {SearchComponent} from "../../components/search/search.component";
 import {ChipsComponent} from "../../components/chips/chips.component";
 import {NgxPaginationModule } from 'ngx-pagination';
 import {FilterPipe} from "../../pipes/filter.pipe";
+import {WriteTransactionComponent} from "../../components/write-transaction/write-transaction.component";
 
 
 @NgModule({
@@ -16,11 +17,13 @@ import {FilterPipe} from "../../pipes/filter.pipe";
     TransactionComponent,
     SearchComponent,
     ChipsComponent,
-    FilterPipe
+    FilterPipe,
+    WriteTransactionComponent
   ],
   imports: [
     SharedModule,
     TransactionsRoutingModule,
+    SharedModule,
     NgxPaginationModule
   ]
 })

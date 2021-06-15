@@ -1,0 +1,50 @@
+<div class="write-transaction">
+  <div class="top-bar">
+    <div class="header">{{header}}</div>
+    <div class="cross" (click)="cancel()">
+      <span class="icon-cross"></span>
+    </div>
+  </div>
+  <form [formGroup]="form">
+    <div class="form-row">
+      <nr-checkbox class="nr-checkbox" checkedText="Sent" uncheckedText="Received" [checked]="_type" (onChange)="type = $event ? 'sent' : 'received'"></nr-checkbox>
+      <nr-checkbox class="nr-checkbox" checkedText="Invoice" uncheckedText="Payment" [checked]="_direction" (onChange)="direction = $event ? 'invoice' : 'payment'"></nr-checkbox>
+    </div>
+    <div class="form-row">
+      <nr-validation-input formControlName="date" type="date" label="Date"
+                           [errorMessages]="dateValidationMessages"></nr-validation-input>
+    </div>
+    <div class="form-row">
+      <nr-validation-input formControlName="account" type="select" label="Account"
+                           placeholder="Select account"
+                           class="full-width"
+                           [options]="accounts"
+                           [errorMessages]="dateValidationMessages"></nr-validation-input>
+    </div>
+    <div class="form-row">
+      <nr-validation-input formControlName="otherParty" type="text" label="Other Party"
+                           placeholder="Other Party"
+                           class="full-width"
+                           [errorMessages]="dateValidationMessages"></nr-validation-input>
+    </div>
+    <div class="form-row">
+      <nr-validation-input formControlName="details" type="textarea" label="Details"
+                           placeholder="Enter Details"
+                           class="full-width"
+                           [errorMessages]="dateValidationMessages"></nr-validation-input>
+    </div>
+    <div class="form-row">
+      <nr-validation-input formControlName="amount" type="number" label="Amount"
+                           placeholder="$0.00"
+                           class="full-width"
+                           [min]="0"
+                           [step]="0.01"
+                           [errorMessages]="dateValidationMessages"></nr-validation-input>
+    </div>
+    <div class="form-row">
+      <div class="btn btn-submit" (click)="save()">Save</div>
+      <div class="btn btn-cancel" (click)="cancel()">Cancel</div>
+    </div>
+
+  </form>
+</div>

@@ -22,3 +22,4 @@ export function isEquals(controlName: string, comparableControlName: string) {
     }
   }
 }
+export const USE_TOUCH = ('ontouchstart' in window);

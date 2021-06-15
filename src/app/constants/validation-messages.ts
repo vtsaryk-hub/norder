@@ -19,6 +19,9 @@ const validation_messages: { [key: string]: {[key: string]: string} } = {
   'confirmPassword': {
     'required': 'Confirm password is required',
     'notEquals': 'Password mismatch'
+  },
+  'date': {
+    'required': 'Date is required',
   }
 }
 

@@ -10,13 +10,17 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import {environment} from "../../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {MatTabsModule} from "@angular/material/tabs";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ValidationInputComponent} from "../components/validataion-input/validation-input.component";
+import {CheckboxComponent} from "../components/checkbox/checkbox.component";
+import {SelectComponent} from '../components/select/select.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ValidationInputComponent, CheckboxComponent, SelectComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatMenuModule,
     MatExpansionModule,
@@ -26,8 +30,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
-
+    FormsModule,
   ],
   exports: [
     CommonModule,
@@ -40,7 +43,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     AngularFireModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ValidationInputComponent,
+    CheckboxComponent,
+    SelectComponent
   ]
 })
 export class SharedModule {

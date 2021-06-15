@@ -1,17 +1,17 @@
 import {Component, ViewChild} from '@angular/core';
 import {UserAuthService} from "./services/user-auth.service";
-import {NavigationEnd, Router} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'nr-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   @ViewChild('sidenav') sidenavRef: any;
   title = 'norder';
 
-  constructor(private userAuthService: UserAuthService, private router: Router) {
+  constructor(private userAuthService: UserAuthService, private router: Router, private route: ActivatedRoute) {
     userAuthService.user.subscribe((user) => {
       if (user === null) {
         this.sidenavRef?.close()

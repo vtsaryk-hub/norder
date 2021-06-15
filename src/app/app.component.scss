@@ -1,8 +1,11 @@
 .main {
   min-height: 100vh;
+  position: relative;
+
   .menu-btn {
     position: fixed;
-    top: 0;
+    top: 15px;
+    z-index: 1000;
     left: auto;
     display: flex;
     justify-content: center;

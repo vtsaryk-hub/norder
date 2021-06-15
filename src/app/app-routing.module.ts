@@ -10,16 +10,17 @@ import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.compo
 const routes: Routes = [{
   path: 'transactions',
   loadChildren: () => import('./pages/transactions/transactions.module').then(m => m.TransactionsModule),
-  canActivate: [AuthGuard, EmailVerifiedGuard]
-}, {
-  path: 'chart-of-accounts',
-  loadChildren: () => import('./pages/chart-of-accounts/chart-of-accounts.module').then(m => m.ChartOfAccountsModule),
-  canActivate: [AuthGuard, EmailVerifiedGuard]
-}, {
-  path: 'financial-reports',
-  loadChildren: () => import('./pages/financial-reports/financial-reports.module').then(m => m.FinancialReportsModule),
-  canActivate: [AuthGuard, EmailVerifiedGuard]
-},
+  canActivate: [AuthGuard, EmailVerifiedGuard],
+  },
+  {
+    path: 'chart-of-accounts',
+    loadChildren: () => import('./pages/chart-of-accounts/chart-of-accounts.module').then(m => m.ChartOfAccountsModule),
+    canActivate: [AuthGuard, EmailVerifiedGuard]
+  }, {
+    path: 'financial-reports',
+    loadChildren: () => import('./pages/financial-reports/financial-reports.module').then(m => m.FinancialReportsModule),
+    canActivate: [AuthGuard, EmailVerifiedGuard]
+  },
   {
     path: 'statement-of-cashflows',
     loadChildren: () => import('./pages/statement-of-cashflows/statement-of-cashflows.module').then(m => m.StatementOfCashflowsModule),

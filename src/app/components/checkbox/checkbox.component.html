@@ -1,0 +1,6 @@
+<div class="wrapper">
+  <div role="radio" [attr.aria-label]="checkedText" class="checkbox-btn" [ngClass]="{'active':checked}"
+       (click)="processOnChange(true)">{{checkedText}}</div>
+  <div role="radio" [attr.aria-label]="uncheckedText" class="checkbox-btn" [ngClass]="{'active':!checked}"
+       (click)="processOnChange(false)">{{uncheckedText}}</div>
+</div>

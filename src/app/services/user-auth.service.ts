@@ -2,13 +2,14 @@ import {Injectable, NgZone} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {IUser} from "../interfaces/user.interface";
 import {AngularFireAuth} from "@angular/fire/auth";
-import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import firebase from "firebase";
 import UserCredential = firebase.auth.UserCredential;
 import auth = firebase.auth;
 import AuthProvider = firebase.auth.AuthProvider;
 import User = firebase.User;
+import {ITransaction} from "../interfaces/transaction.interface";
 
 @Injectable({
   providedIn: 'root'

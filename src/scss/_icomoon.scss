@@ -25,44 +25,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cross:before {
+  content: "\e901";
+}
 .icon-chevron:before {
   content: "\e905";
-  color: #fff;
 }
-
 .icon-doc:before {
   content: "\e900";
-  color: #fff;
 }
-
 .icon-logout:before {
-  content: "\1f33f";
-  color: #fff;
+  content: "\1f388";
 }
-
 .icon-person:before {
   content: "\e902";
-  color: #fff;
 }
-
 .icon-search:before {
   content: "\e903";
-  color: #fff;
 }
-
 .icon-wallet:before {
   content: "\e904";
-  color: #fff;
 }
-
 .icon-eye:before {
   content: "\e9ce";
 }
-
 .icon-eye-blocked:before {
   content: "\e9d1";
 }
-
+.icon-warning:before {
+  content: "\ea07";
+}
 .icon-notification:before {
   content: "\ea08";
+}
+.icon-info:before {
+  content: "\ea0c";
+}
+.icon-blocked:before {
+  content: "\ea0e";
+}
+.icon-checkmark:before {
+  content: "\ea10";
 }

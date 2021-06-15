@@ -1,33 +1,43 @@
+<nr-write-transaction *ngIf="showWriteTransaction"
+                      (onClose)="showWriteTransaction = false"
+                      [transaction]="editableTransaction"
+                      [accounts]="accounts"
+                      (onAddSave)="onAddTransactionSubmit($event)"
+                      (onEditSave)="onEditTransactionSubmit($event)"></nr-write-transaction>
 <div class="transactions page">
   <h1 class="header">
     Transactions
   </h1>
   <div class="transactions-table">
     <div class="transactions-top-bar">
-<!--      <input type="text" placeholder="search" role="search" (keyup)="applyFilter()" #searchInput>-->
       <nr-search (onInput)="applyFilter($event)"></nr-search>
-      <button class="transactions-add-btn">Add Transaction</button>
+      <button class="transactions-add-btn" role="link" aria-label="add transaction" (click)="addTransaction()">Add
+        Transaction
+      </button>
     </div>
 
-    <div class="transactions-table-sort-header" matSort (matSortChange)="sortData($event)">
-      <div mat-sort-header="date">Date</div>
-      <div mat-sort-header="account">Account</div>
-      <div mat-sort-header="otherParty">Other Party</div>
-      <div mat-sort-header="type">Type</div>
-      <div mat-sort-header="direction">Direction</div>
-      <div mat-sort-header="amount">Amount</div>
-      <div></div>
+    <div class="transactions-table-wrapper">
+      <div class="transactions-table-sort-header row-min-width" matSort (matSortChange)="sortData($event)">
+        <div mat-sort-header="date">Date</div>
+        <div mat-sort-header="account">Account</div>
+        <div mat-sort-header="otherParty">Other Party</div>
+        <div mat-sort-header="type">Type</div>
+        <div mat-sort-header="direction">Direction</div>
+        <div mat-sort-header="amount">Amount</div>
+        <div></div>
+      </div>
+      <ng-container
+        *ngFor="let transaction of sortedData | filter:filterValue:filterCallback | paginate: { itemsPerPage: 9, currentPage: page }; let length = count">
+        <nr-transaction [accounts]="accounts" [transactionData]="transaction" class="row-min-width" (onDelete)="deleteTransaction($event)"
+                        (onEdit)="editTransaction($event)"></nr-transaction>
+      </ng-container>
+      <p class="empty-filter-message" *ngIf="itemsLength === 0 && filterValue">No data matching the filter
+        "{{filterValue}}"</p>
+      <p class="loading" *ngIf="transactionsList===null">Loading transactions...</p>
     </div>
-    <ng-container
-      *ngFor="let transaction of sortedData | filter:filterValue:filterCallback | paginate: { itemsPerPage: 9, currentPage: page }; let length = count">
-      <nr-transaction [transactionData]="transaction"></nr-transaction>
-    </ng-container>
-    <p class="empty-filter-message" *ngIf="itemsLength === 0 && filterValue">No data matching the filter
-      "{{filterValue}}"</p>
     <pagination-controls previousLabel=""
                          nextLabel=""
                          (pageChange)="page = $event">
     </pagination-controls>
-
   </div>
 </div>

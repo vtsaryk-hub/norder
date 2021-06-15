@@ -1,8 +1,26 @@
 @import "variables";
 
-.page {
-  background-color: $nr-color-second;
-  padding: 50px 60px;
+@mixin page-like-modal($cssClass) {
+  :host {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $nr-color-input;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  #{$cssClass} {
+    background-color: #fff;
+    width: 340px;
+    margin: 100px auto 100px;
+  }
 }
 
 @mixin auth {

@@ -11,5 +11,6 @@ export interface ITransaction {
   direction: transactionDirection;
   amount: number;
   details: string;
-  impactedAccounts: ITransactionImpactedAccounts[];
+  impactedAccounts?: ITransactionImpactedAccounts[];
+  id?: string;
 }
