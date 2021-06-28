@@ -8,7 +8,7 @@
         </div>
         <span
           class="transaction-date">{{(transactionData.date.toDate && transactionData.date.toDate()) || transactionData.date | date: 'd MMM, y'}}</span>
-        <span class="transaction-account">{{transactionData.account}}</span>
+        <span class="transaction-account">{{account}}</span>
         <span class="transaction-other-party">{{transactionData.otherParty}}</span>
         <span class="transaction-type">
           <nr-chips [type]="transactionData.type === 'sent' ? 'success': 'info'">{{transactionData.type}}</nr-chips>

@@ -2,7 +2,6 @@ import {Component, EventEmitter, HostBinding, Input, OnInit, Output} from '@angu
 import {ITransaction, transactionDirection, transactionType} from "../../interfaces/transaction.interface";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {getValidationMessages} from "../../constants/validation-messages";
-import {Router} from "@angular/router";
 import {slideInOut} from "../../animations/animation";
 
 @Component({

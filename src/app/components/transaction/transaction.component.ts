@@ -9,13 +9,12 @@ import {compare} from "../../utils/utils";
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  @Input() accounts: any[] = [];
+  @Input() account: string = '';
   @Input() transactionData: any; // ITransaction
   @Output() onDelete = new EventEmitter<string>();
   @Output() onEdit = new EventEmitter<string>();
   sortedData: ITransactionImpactedAccounts[];
   id: string = '';
-  private accountName: string = '';
 
   constructor() {
     this.sortedData = [];
@@ -24,9 +23,6 @@ export class TransactionComponent implements OnInit {
   ngOnInit(): void {
     this.sortedData = this.transactionData?.impactedAccounts?.slice();
     this.id = this.transactionData.id;
-    this.accountName = this.accounts.find((account) => {
-      return this.transactionData.account === account.id;
-    })?.name || '';
   }
 
 

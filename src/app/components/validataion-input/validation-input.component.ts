@@ -80,6 +80,7 @@ export class ValidationInputComponent implements OnInit, ControlValueAccessor {
   @Input() disabled: boolean = false;
   @Input() step: number | undefined;
   @Input() min: number | undefined;
+  state: any;
 
   get isInvalid() {
     return this.control && !this.control.valid && this.control.touched

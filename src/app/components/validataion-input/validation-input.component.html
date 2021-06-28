@@ -28,14 +28,14 @@
     </ng-container>
     <ng-container *ngIf="type === 'select'">
       <select class="validation-input"
-                #textarea
-                (input)="change(textarea.value)"
+                #select
+                (input)="change(select.value)"
                 (blur)="onTouched()"
                 [disabled]="disabled"
                 [attr.placeholder]="placeholder"
                 [value]="value">
-        <option *ngIf="placeholder" value="" disabled selected>{{placeholder}}</option>
-        <option *ngFor="let option of options" value="{{option.value}}">{{option.text}}</option>
+        <option *ngIf="placeholder" value="" disabled [selected]="!value">{{placeholder}}</option>
+        <option *ngFor="let option of options" value="{{option.value}}" [selected]="value === option.value">{{option.text}}</option>
       </select>
     </ng-container>
   </div>
